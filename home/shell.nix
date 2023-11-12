@@ -82,7 +82,7 @@
           symbol = " ";
           #style = "bg:#f34c28 fg:#413932";
           style = "fg:#f34c28";
-          format = "[ $symbol$branch(:$remote_branch)]($style)";
+          format = "[  $symbol$branch(:$remote_branch)]($style)";
         };
 				azure = {
 					disabled = false;
@@ -94,7 +94,7 @@
 				  #style = "bg:#303030 fg:#ffffff";
 				  style = "bold fg:#2e6ce6";
 					#format = "\\[[󱃾 :($cluster)]($style)\\]";
-					format = "[󱃾 ($cluster)]($style)";
+					format = "[ 󱃾 ($cluster)]($style)";
 					disabled = false;
 				};
 				docker_context = {

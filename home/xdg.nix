@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -23,7 +24,7 @@
       enable = true;
       defaultApplications = let
         browser = ["chromium.desktop"];
-        nnn = ["nnn.desktop"];
+        lf = ["lf.desktop"];
       in {
         "application/json" = browser;
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop"; 
@@ -46,8 +47,8 @@
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
         "x-scheme-handler/unknown" = browser;
-        "inode/directory" = nnn;        
-
+        "inode/directory" = lf;        
+        "image/*" = ["imv.desktop"];
       };
 
       associations.removed =
@@ -56,7 +57,9 @@
         };
     };
 
+  
     userDirs = {
+      download = "${config.home.homeDirectory}/downloads";
       enable = false;
       createDirectories = false;
       extraConfig = {
@@ -125,6 +128,12 @@
       exec = "chromium -app=https://avaya.rocket.chat";
     };
   };
-
+  
+  home.activation = with config.xdg; {
+      createXdgCacheAndDataDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
+          ${config.home.homeDirectory}/screenshots
+      '';
+    };
 
 }

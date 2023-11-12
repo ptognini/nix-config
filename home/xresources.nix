@@ -37,7 +37,8 @@ pkgs,
       "XTerm*scrollBar" = "false";
       "Xft.dpi" = 192;
       "*.dpi" = 192;
-      "Xcursor.size" = 48;
+      #"Xcursor.size" = 96;
+      #"Xcursor.theme" = "Adwaita";
     };
   };
 

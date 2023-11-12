@@ -7,7 +7,7 @@
       General = {
         disabledTrayIcon = false;
         showStartupLaunchMessage = false;
-        savePath = "${config.home.homeDirectory}/Pictures/screenshots";
+        savePath = "${config.home.homeDirectory}/screenshots";
       };
     };
   };

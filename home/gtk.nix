@@ -1,9 +1,5 @@
 { gtk-nix, config, pkgs, lib, ... }:
 {
-
-# imports = [ gtk-nix.homeManagerModule ];
-# gtkNix.enable = true;
-
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
@@ -64,7 +60,7 @@
     gtk3 = {
         extraConfig = {
           #gtk-application-prefer-dark-theme = 1;
-          gtk-icon-sizes = "panel-menu=16,16:gtk-large-toolbar=24,24";
+          #gtk-icon-sizes = "panel-menu=16,16:gtk-large-toolbar=24,24";
         };
       };
       gtk4 = {

@@ -28,6 +28,8 @@
       ./xresources.nix 
       ./screen-capture.nix
       ./qt.nix
+      ./zathura.nix
+      ./go.nix
     ];
     xsession.enable = true;
     home.sessionVariables = {
