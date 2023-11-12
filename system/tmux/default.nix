@@ -1,0 +1,35 @@
+{
+  lib,
+  inputs,
+  system,
+  config,
+  pkgs,
+
+  username,
+  fullname,
+  ...
+}:{
+
+  programs.tmux = {
+      enable = true;
+      keyMode = "vi";
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+          tmuxPlugins.sensible
+          tmuxPlugins.vim-tmux-navigator
+          tmuxPlugins.resurrect
+          tmuxPlugins.tmux-fzf
+          tmuxPlugins.continuum
+      ];
+      extraConfig = builtins.readFile ./tmux.conf;
+  };
+
+
+  environment.systemPackages = with pkgs; [
+    (let
+      scriptContent = builtins.readFile ./tmux-sessionizer;
+    in 
+      writeShellScriptBin "tmux-sessionizer" scriptContent 
+    )
+  ];
+}
