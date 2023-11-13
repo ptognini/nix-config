@@ -38,19 +38,6 @@ in {
     gdb
     rustup
     
-    go
-    gopls
-    gotests
-    iferr
-    gotestsum
-    gomodifytags
-    delve
-    gofumpt
-    mockgen
-    golangci-lint
-    richgo
-    go-tools
-
     lazygit
 
     # kafka
@@ -81,6 +68,8 @@ in {
     zathura
     asciinema
     flameshot
+    evince
+    foliate
   ];
 
 }

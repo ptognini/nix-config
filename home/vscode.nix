@@ -14,6 +14,7 @@
       ms-vscode.makefile-tools
       golang.go
       redhat.java
+      mvllow.rose-pine
       pkief.material-icon-theme
       humao.rest-client
       ms-azuretools.vscode-docker
@@ -37,23 +38,9 @@
 
       workbench = {
         iconTheme = "material-icon-theme";
-        colorTheme = "GitHub Dark"; # Material Theme Ocean High Contrast
+        colorTheme = "Rosé Pine"; # Material Theme Ocean High Contrast
       };
 
-      rust-client.rustupPath = "${pkgs.rustup}/bin/rustup";
-      cmake.configureOnOpen = false;
-      python.formatting.provider = "black";
-      "[css]" = { editor.defaultFormatter = "MikeBovenlander.formate"; };
-      window.menuBarVisibility = "toggle";
-      files.exclude = {
-        "**/.git" = true;
-        "**/.svn" = true;
-        "**/.hg" = true;
-        "**/CVS" = true;
-        "**/.DS_Store" = true;
-        "**/Thumbs.db" = true;
-        "**/*.olean" = true;
-      };
     };
   };
 }

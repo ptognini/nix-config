@@ -48,14 +48,20 @@
   };
   
   programs = {
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce;[
+        thunar-archive-plugin thunar-volman thunar-media-tags-plugin
+      ];
+    };
     dconf.enable = true;
   };
   
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-kde
-    ];
-  };
+ # xdg.portal = {
+ #   enable = true;
+ #   extraPortals = [
+ #     pkgs.xdg-desktop-portal-kde
+ #   ];
+ # };
    
 }

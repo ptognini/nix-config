@@ -119,6 +119,15 @@
 			};
 		};
 	};
+
+	programs.lf = {
+    enable = true;
+    settings = {
+      number = true;
+      icons = true;
+    };
+	};
+
 	programs.nnn = {
      enable = true;
      bookmarks = {

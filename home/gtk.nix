@@ -14,6 +14,20 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "org/gtk/settings/file-chooser" = {
+        show-type-column = true;
+        sidebar-width=152;
+        date-format="with-time";
+        location-mode="path-bar";
+        show-hidden=true;
+        show-size-column=true;
+        sort-column="modified";
+        sort-directories-first=true;
+        sort-order="ascending";
+        type-format="category";
+        #window-position="(462,304)";
+        #window-size="(799, 491)";
+      };
     };
   };
 # gtk's theme settings, generate files: 
@@ -40,7 +54,7 @@
 
     theme = {
 # https://github.com/catppuccin/gtk
-      name = "rose-pine-moon";
+      name = "rose-pine";
       package = pkgs.rose-pine-gtk-theme;
 
       #name = "Catppuccin-Mocha-Standard-Pink-Dark";
@@ -54,7 +68,8 @@
 
     gtk3.bookmarks = [
       "file:///${config.home.homeDirectory}/projects"
-      "file:///${config.home.homeDirectory}/Pictures/screenshots"
+      "file:///${config.home.homeDirectory}/screenshots"
+      "file:///${config.home.homeDirectory}/downloads"
     ];
 
     gtk3 = {
@@ -70,6 +85,7 @@
       };
   };
 
+  home.sessionVariables.GTK_THEME = config.gtk.theme.name;
   services.xsettingsd = {
     enable = true;
     settings = {

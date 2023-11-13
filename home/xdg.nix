@@ -47,8 +47,9 @@
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
         "x-scheme-handler/unknown" = browser;
-        "inode/directory" = lf;        
-        "image/*" = ["imv.desktop"];
+        "inode/directory" = "thunar.desktop";        
+        "image/*" = browser;
+
       };
 
       associations.removed =
@@ -60,10 +61,11 @@
   
     userDirs = {
       download = "${config.home.homeDirectory}/downloads";
+      documents = "${config.home.homeDirectory}/projects";
       enable = false;
       createDirectories = false;
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs}/screenshots";
       };
     };
   };
