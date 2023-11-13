@@ -135,6 +135,19 @@
       createXdgCacheAndDataDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
           ${config.home.homeDirectory}/screenshots
+
+        $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
+          ${config.home.homeDirectory}/projects
+
+        $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
+          ${config.home.homeDirectory}/screenshots
+
+      '';
+  
+      createJavaCertificates = lib.hm.dag.entryAfter [ "writeBoundary"] ''
+        if [ ! -f $HOME/.config/java-cacerts ]; then 
+          $DRY_RUN_CMD ${pkgs.p11-kit.bin}/bin/trust extract --format=java-cacerts --purpose=server-auth $HOME/.config/java-cacerts
+        fi 
       '';
     };
 

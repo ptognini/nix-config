@@ -34,7 +34,8 @@
     xsession.enable = true;
     home.sessionVariables = {
       JAVAX_NET_SSL_TRUSTSTORE = "$HOME/.config/java-cacerts";
-    };
-  };
+    }; 
+};
+#        $DRY_RUN_CMD trust extract --format=java-cacerts --purpose=server-auth ~/.config/java-cacerts
 }
 

@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, lib,  ...}:
 {
   security.pki.certificateFiles = [
 	  ./certs/avayaitrootca2.pem
