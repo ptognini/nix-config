@@ -13,7 +13,7 @@
   ];
 
   # Hostname
-  networking.hostName = "prl-dev";
+  networking.hostName = "utm-dev";
   
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
