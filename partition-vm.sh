@@ -7,11 +7,10 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "Please enter the destination storage device (sda,vda,nvme01): "
-read user_input
+read -p "Please enter the destination storage device (sda,vda,nvme01): " user_input
 
 # Echo the input back
-echo "NixOS will be installed to ./dev/$user_input. Continue (y/n): "
+echo "NixOS will be installed to /dev/$user_input. Continue (y/n): "
 
 # Ask for confirmation
 while true; do
