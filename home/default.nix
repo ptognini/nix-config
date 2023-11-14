@@ -30,6 +30,7 @@
       ./qt.nix
       ./zathura.nix
       ./go.nix
+      ./gpg.nix
     ];
     xsession.enable = true;
     home.sessionVariables = {
