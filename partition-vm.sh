@@ -27,16 +27,16 @@ while true; do
     esac
 done
 
-sudo parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while read part; do
-    sudo parted "/dev/${device}" --script -- rm "$part"
+parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while read part; do
+    parted "/dev/${device}" --script -- rm "$part"
 done
 
 echo "Creating partitions" 
-parted "/dev/${device}" -- mklabel gpt
-parted "/dev/${device}" -- mkpart primary 512MB -8GB
-parted "/dev/${device}" -- mkpart primary linux-swap -8GB 100%
-parted "/dev/${device}" -- mkpart ESP fat32 1MB 512MB
-parted "/dev/${device}" -- set 3 esp on
+parted "/dev/${device}" -- mklabel gpt --script
+parted "/dev/${device}" -- mkpart primary 512MB -8GB --script
+parted "/dev/${device}" -- mkpart primary linux-swap -8GB 100% --script
+parted "/dev/${device}" -- mkpart ESP fat32 1MB 512MB --script
+parted "/dev/${device}" -- set 3 esp on --script
 
 echo "Formatting partitions"
 mkfs.ext4 -L nixos "/dev/${device}1"
