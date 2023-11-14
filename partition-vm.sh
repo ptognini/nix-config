@@ -31,6 +31,7 @@ parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while
     parted "/dev/${device}" --script -- rm "$part"
 done
 
+
 echo "Creating partitions" 
 parted "/dev/${device}" --script -- mklabel gpt 
 parted "/dev/${device}" --script -- mkpart primary 512MB -8GB 
