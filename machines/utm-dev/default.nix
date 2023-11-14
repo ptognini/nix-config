@@ -20,7 +20,7 @@
   hardware.opengl.driSupport = true;
 
   virtualisation.libvirtd.enable = true;
-  virtualization.libvirtd.qemu.package = pkgs.qemu_kvm;
+  virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
   services.qemuGuest.enable = true;
   
   boot.loader.systemd-boot.enable = true;
