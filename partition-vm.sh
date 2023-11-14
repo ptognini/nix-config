@@ -27,7 +27,7 @@ while true; do
     esac
 done
 
-echo "Creating partitions"
+echo "Creating partitions" 
 parted "/dev/${device}" -- mklabel gpt
 parted "/dev/${device}" -- mkpart primary 512MB -8GB
 parted "/dev/${device}" -- mkpart primary linux-swap -8GB 100%
