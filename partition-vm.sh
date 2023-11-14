@@ -33,9 +33,12 @@ done
 
 
 echo "Creating partitions" 
-parted "/dev/${device}" --script -- mklabel gpt 
+parted "/dev/${device}" --script -- mklabel gpt
 parted "/dev/${device}" --script -- mkpart primary 512MB -8GB 
-parted "/dev/${device}" --script -- mkpart primary linux-swap -8GB 100% 
+parted "/dev/${device}" --script -- mkpart primary linux-swap -8GB 100%
+parted "/dev/${device}" --script -- mkpart ESP fat32 1MB 512MB
+parted "/dev/${device}" --script -- set 3 esp on
+
 echo "Formatting partitions"
 mkfs.ext4 -L nixos "/dev/${device}1"
 mkswap -L swap "/dev/${device}2"
