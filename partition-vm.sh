@@ -28,11 +28,11 @@ while true; do
 done
 
 echo "Creating partitions"
-parted /dev/$devic -- mklabel gpt
-parted /dev/$device -- mkpart primary 512MB -8GB
-parted /dev/$device -- mkpart primary linux-swap -8GB 100%
-parted /dev/$device -- mkpart ESP fat32 1MB 512MB
-parted /dev/$device -- set 3 esp on
+parted "/dev/${device}" -- mklabel gpt
+parted "/dev/${device}" -- mkpart primary 512MB -8GB
+parted "/dev/${device}" -- mkpart primary linux-swap -8GB 100%
+parted "/dev/${device}" -- mkpart ESP fat32 1MB 512MB
+parted "/dev/${device}" -- set 3 esp on
 
 echo "Formatting partitions"
 mkfs.ext4 -L nixos "/dev/${device}1"
