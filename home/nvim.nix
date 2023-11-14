@@ -91,6 +91,7 @@
       ${builtins.readFile neovim/setup/go.lua}
       ${builtins.readFile neovim/setup/git.lua}
       ${builtins.readFile neovim/setup/mappings.lua}
+      ${builtins.readFile neovim/setup/theme.lua}
 		'';
 	};
 }

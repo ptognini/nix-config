@@ -4,22 +4,31 @@
   services.picom = {
     enable = true;
     settings = { 
-      corner-radius = 25;
-    };
-    #inactiveOpacity = 0.93;
-    #package = pkgs.callPackage ../packages/compton-unstable.nix { };
-    #experimentalBackends = true;
+      corner-radius = 0;
+      corner-radius-exclude = [
+        "window_type = 'dock'"
+      ];
+#      blur-background-fixed = false;
+ #     blue-background-exclude = [
+ #       "window_type = 'dock'"
+ #       "window_type = 'desktop'"
+ #     ];
+ #    detect-rounded-corners = true;
+ #     blur = true;
+ #     blurExclude = [ "window_type = 'dock'" "window_type = 'desktop'" ];
+  };
+ # backend = "glx";
+ # vSync = true;
+      #inactiveOpacity = 0.93;
+      #package = pkgs.callPackage ../packages/compton-unstable.nix { };
 
-    #blur = true;
-    #blurExclude = [ "window_type = 'dock'" "window_type = 'desktop'" ];
+         # fade = true;
+     # fadeDelta = 5;
 
-   # fade = true;
-   # fadeDelta = 5;
-
-    #shadow = true;
-    #shadowOffsets = [ (-7) (-7) ];
-    #shadowOpacity = 0.7;
-    #shadowExclude = [ "window_type *= 'normal' && ! name ~= ''" ];
+      #shadow = true;
+      #shadowOffsets = [ (-7) (-7) ];
+      #shadowOpacity = 0.7;
+      #shadowExclude = [ "window_type *= 'normal' && ! name ~= ''" ];
 
     #activeOpacity = 1;
     #inactiveOpacity = 0.8;
