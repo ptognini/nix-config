@@ -32,12 +32,9 @@ parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while
 done
 
 echo "Creating partitions" 
-parted "/dev/${device}" -- mklabel gpt --script
-parted "/dev/${device}" -- mkpart primary 512MB -8GB --script
-parted "/dev/${device}" -- mkpart primary linux-swap -8GB 100% --script
-parted "/dev/${device}" -- mkpart ESP fat32 1MB 512MB --script
-parted "/dev/${device}" -- set 3 esp on --script
-
+parted "/dev/${device}" --script -- mklabel gpt 
+parted "/dev/${device}" --script -- mkpart primary 512MB -8GB 
+parted "/dev/${device}" --script -- mkpart primary linux-swap -8GB 100% 
 echo "Formatting partitions"
 mkfs.ext4 -L nixos "/dev/${device}1"
 mkswap -L swap "/dev/${device}2"
