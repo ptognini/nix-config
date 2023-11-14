@@ -72,7 +72,6 @@
 
 
   xdg.desktopEntries = {
-
     tmux-default= {
       name = "Tmux default session";
       genericName = "Tmux default session";
@@ -83,14 +82,14 @@
     teams = {
       name = "MS Teams Web";
       genericName = "MS Teams Collaboration";
-      exec = "teams.sh";
+      exec = "chromium -app=https://teams.microsoft.com";
       icon = "office-contact";
     };
 
     outlook = {
       name = "Outlook Web";
       genericName = "MS Outlook for Web";
-      exec = "outlook.sh";
+      exec = "chromium -app=https://outlook.office.com";
       icon = "mail-message-new-symbolic";
     };
 
@@ -143,7 +142,8 @@
           ${config.home.homeDirectory}/screenshots
 
       '';
-  
+
+      #TODO remove this from here - should be in the java.nix file
       createJavaCertificates = lib.hm.dag.entryAfter [ "writeBoundary"] ''
         if [ ! -f $HOME/.config/java-cacerts ]; then 
           $DRY_RUN_CMD ${pkgs.p11-kit.bin}/bin/trust extract --format=java-cacerts --purpose=server-auth $HOME/.config/java-cacerts

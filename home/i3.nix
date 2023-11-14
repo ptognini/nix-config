@@ -13,7 +13,6 @@ in
 
       window.border = 3;
       window.titlebar = false;
-
       gaps = {
         inner = 15;
         outer = 5;

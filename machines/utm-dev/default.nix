@@ -16,8 +16,12 @@
   networking.hostName = "utm-dev";
   
   hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+  hardware.opengl.extraPackages = [ pkgs.mesa.drivers pkgs.virglrenderer ];
   hardware.opengl.driSupport = true;
+
+  virtualisation.libvirtd.enable = true;
+  virtualization.libvirtd.qemu.package = pkgs.qemu_kvm;
+  services.qemuGuest.enable = true;
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -8,7 +8,7 @@
       };
       window = {
         padding = { y = 5; x = 5; };
-        opacity = 0.96;
+        opacity = 0.95;
         dynamic_title = true;
       };
 

@@ -37,5 +37,6 @@
     lua-language-server
     nodePackages_latest.bash-language-server
     p11-kit #used to generate java ca-certs
+    glxinfo
   ];
 }

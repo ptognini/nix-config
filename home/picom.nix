@@ -2,11 +2,11 @@
 
 {
   services.picom = {
-    enable = false;
+    enable = true;
     settings = { 
       corner-radius = 25;
     };
-    inactiveOpacity = 0.93;
+    #inactiveOpacity = 0.93;
     #package = pkgs.callPackage ../packages/compton-unstable.nix { };
     #experimentalBackends = true;
 
