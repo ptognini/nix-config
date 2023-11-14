@@ -54,7 +54,7 @@ swapon "/dev/${device}2"
 nix-env -iA nixos.git
 nix-env -iA nixos.nixFlakes
 
-git clone https://github.com/andreaugustoaragao/nix-config#utm-dev
+git clone https://github.com/andreaugustoaragao/nix-config
 cd nix-config
 nixos-install --flake .#utm-dev
 
