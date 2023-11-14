@@ -28,20 +28,20 @@ while true; do
 done
 
 echo "Creating partitions"
-parted /dev/sda -- mklabel gpt
-parted /dev/sda -- mkpart primary 512MB -8GB
-parted /dev/sda -- mkpart primary linux-swap -8GB 100%
-parted /dev/sda -- mkpart ESP fat32 1MB 512MB
-parted /dev/sda -- set 3 esp on
+parted /dev/$devic -- mklabel gpt
+parted /dev/$device -- mkpart primary 512MB -8GB
+parted /dev/$device -- mkpart primary linux-swap -8GB 100%
+parted /dev/$device -- mkpart ESP fat32 1MB 512MB
+parted /dev/$device -- set 3 esp on
 
 echo "Formatting partitions"
-mkfs.ext4 -L nixos /dev/sda1
-mkswap -L swap /dev/sda2
-mkfs.fat -F 32 -n boot /dev/sda3
+mkfs.ext4 -L nixos "/dev/${device}1"
+mkswap -L swap "/dev/${device}2"
+mkfs.fat -F 32 -n boot "/dev/${device}3"
 mount /dev/disk/by-label/nixos /mnt
 mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
-swapon /dev/sda2
+swapon "/dev/${device}2"
 
 #echo "Generating config."
 #nixos-generate-config --root /mnt
