@@ -56,5 +56,5 @@ nix-env -iA nixos.nixFlakes
 
 git clone https://github.com/andreaugustoaragao/nix-config
 cd nix-config
-nixos-install --flake .#utm-dev
+nixos-install -- --flake .#utm-dev < /dev/tty
 
