@@ -27,6 +27,10 @@ while true; do
     esac
 done
 
+sudo parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while read part; do
+    sudo parted "/dev/${device}" --script -- rm "$part"
+done
+
 echo "Creating partitions" 
 parted "/dev/${device}" -- mklabel gpt
 parted "/dev/${device}" -- mkpart primary 512MB -8GB
@@ -49,5 +53,7 @@ swapon "/dev/${device}2"
 nix-env -iA nixos.git
 nix-env -iA nixos.nixFlakes
 
-nixos-install --flake https://github.com/andreaugustoaragao/nix-config#utm-dev
+git clone https://github.com/andreaugustoaragao/nix-config#utm-dev
+cd nix-config
+nixos-install --flake .#utm-dev
 
