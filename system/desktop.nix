@@ -27,10 +27,13 @@
             xfce.xfce4-appfinder
             firefox
 	      ];
+	      extraSessionCommands = ''
+          xrandr --output Virtual-1 --auto
+	      '';
       };
 
       layout = "us";
-      xkbOptions = "ctrl:nocaps";
+      # xkbOptions = "ctrl:nocaps";
 
       libinput = {
 	      enable = true;

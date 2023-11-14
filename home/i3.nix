@@ -86,6 +86,11 @@ in
         always = true;
         notification = false;
       }
+      { 
+          command = "exec spice-vdagent";
+          always = false;
+          notification = true;
+      }
       {
         command = "systemctl --user restart polybar.service";
         always = true;
