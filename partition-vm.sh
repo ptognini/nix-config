@@ -7,14 +7,21 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-read -p "Please enter the destination storage device (sda,vda,nvme01): " user_input
 
-# Echo the input back
+device=$(lsblk -o NAME,MOUNTPOINT | awk '$2==""{print $1}')
+num_devices=$(echo "$device" | wc -l)
+
+if [ "$num_devices" -gt 1 ]; then
+    echo "More than one unused device found."
+    echo $device
+
+    read -p "Please enter the destination storage device: " device < /dev/tty
+fi
+
 echo "NixOS will be installed to /dev/$user_input. Continue (y/n): "
 
-# Ask for confirmation
 while true; do
-    read -p "Do you wish to proceed? (yes/no) " yn
+    read -p "Do you wish to proceed? (yes/no) " yn < /dev/tty
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) echo "Exiting."; exit;;
@@ -22,11 +29,7 @@ while true; do
     esac
 done
 
-# Continue with the rest of the script
 echo "Creating partitions."
-# ... rest of your script
-# Rest of your script...
-echo creating partitions...
 parted /dev/sda -- mklabel gpt
 parted /dev/sda -- mkpart primary 512MB -8GB
 parted /dev/sda -- mkpart primary linux-swap -8GB 100%
