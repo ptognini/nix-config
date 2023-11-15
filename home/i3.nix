@@ -6,12 +6,23 @@ in
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
+    
 
     config = rec {
       modifier = "Mod1";
       bars = [ ];
-
-      window.border = 3;
+      #https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/lib/options.nix
+      colors = {
+        focused = {
+          background = "#191724";
+          border = "#c4a7e7";
+          text = "#e0def4";
+          indicator = "#eb6f92";
+          childBorder = "#c4a7e7";
+        };
+        "background"="#191724";   
+      };
+      window.border = 1;
       window.titlebar = false;
       gaps = {
         inner = 15;

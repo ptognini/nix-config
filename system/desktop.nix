@@ -23,7 +23,7 @@
             xdotool
             xsel
             xfce.exo
-            xfce.xfce4-notifyd
+            #xfce.xfce4-notifyd
             xfce.xfce4-appfinder
             firefox
 	      ];
