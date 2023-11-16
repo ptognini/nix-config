@@ -1,6 +1,6 @@
 # TODO 
 - [ ] fix git/seahorse git credentials/auto login
-- [ ] get SSH to work correctly
+- [ ] get SSH to work correctly with github and bb
 - [ ] install vscode server
 - [ ] configure GIT
 - [X] fix dunst icons
