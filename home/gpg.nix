@@ -11,6 +11,11 @@
     enableExtraSocket = true;
     enableScDaemon = false; #no smart card
     enableSshSupport = true;
-    pinentryFlavor = lib.mkDefault "curses";
+    extraConfig = ''
+      log-file /home/aragao/gpg-log.log
+      verbose
+      debug-level guru
+    '';
+    #pinentryFlavor = lib.mkDefault "curses";
   };
 }

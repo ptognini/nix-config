@@ -3,7 +3,7 @@
 - [ ] get SSH to work correctly
 - [ ] install vscode server
 - [ ] configure GIT
-- [ ] fix dunst icons
+- [X] fix dunst icons
 - [ ] java configuration for vscode
 - [ ] java configuration for nvim
 - [ ] maven configuration
