@@ -31,7 +31,10 @@
       ./zathura.nix
       ./go.nix
       ./gpg.nix
+<<<<<<< HEAD
       ./dunst.nix
+=======
+>>>>>>> refs/remotes/origin/main
     ];
     xsession.enable = true;
     home.sessionVariables = {

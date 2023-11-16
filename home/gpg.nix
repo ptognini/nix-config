@@ -10,9 +10,6 @@
     enableFishIntegration = true;
     enableExtraSocket = true;
     enableScDaemon = false; #no smart card
-    enableSshSupport = true;
-    extraConfig = ''
-    '';
     #pinentryFlavor = lib.mkDefault "curses";
   };
 }
