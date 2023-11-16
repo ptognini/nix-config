@@ -12,9 +12,6 @@
     enableScDaemon = false; #no smart card
     enableSshSupport = true;
     extraConfig = ''
-      log-file /home/aragao/gpg-log.log
-      verbose
-      debug-level guru
     '';
     #pinentryFlavor = lib.mkDefault "curses";
   };
