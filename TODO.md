@@ -10,4 +10,4 @@
 - [ ] tmux window names - icons
 - [ ] lf - icons
 - [X] i3 window frame borders
-
+- [ ] SSH server 

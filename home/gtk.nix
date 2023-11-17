@@ -38,7 +38,7 @@
     enable = true;
 
     font = {
-      name = "Roboto";
+      name = "Roboto Medium";
       package = pkgs.roboto;
       size = 10;
     };
