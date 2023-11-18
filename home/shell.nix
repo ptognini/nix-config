@@ -128,18 +128,15 @@
     };
 	};
 
-	programs.nnn = {
-     enable = true;
-     bookmarks = {
-        P = "~/projects/";
-        S = "~/pictures/screenshots/";
-        D = "~/downloads/";
-     };
-     extraPackages = with pkgs; [ffmpegthumbnailer mediainfo sxiv];
-	};
 	home.sessionVariables = {
 		PAGER = "less";
 		EDITOR = "nvim";
 		VISUAL = "neovide";
 	};
+  
+  home.packages = with pkgs; [ 
+    lolcat
+    fortune
+    entr
+  ];
 }
