@@ -31,5 +31,10 @@
     in 
       writeShellScriptBin "tmux-sessionizer" scriptContent 
     )
+    (let 
+      scriptContent = builtins.readFile ./tmux-window-icons;
+    in
+      writeShellScriptBin "tmux-window-icons" scriptContent
+    )
   ];
 }

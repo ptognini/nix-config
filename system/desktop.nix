@@ -33,7 +33,7 @@
       };
 
       layout = "us";
-      # xkbOptions = "ctrl:nocaps";
+       xkbOptions = "caps:escape";
 
       libinput = {
 	      enable = true;

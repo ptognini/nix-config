@@ -20,6 +20,7 @@
     ./certs.nix
     ./desktop.nix
     ./tmux
+    ./openssh.nix
   ]; 
 
 # NETWORK
@@ -33,6 +34,7 @@
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
+  security.sudo.wheelNeedsPassword = false;
 
 # USER SETUP
   users.users = {

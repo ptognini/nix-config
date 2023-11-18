@@ -1,13 +1,14 @@
 # TODO 
 - [ ] fix git/seahorse git credentials/auto login
-- [ ] get SSH to work correctly with github and bb
+- [x] get SSH to work correctly with github and bb
 - [ ] install vscode server
 - [ ] configure GIT
-- [X] fix dunst icons
+- [x] fix dunst icons
 - [ ] java configuration for vscode
 - [ ] java configuration for nvim
 - [ ] maven configuration
-- [ ] tmux window names - icons
+- [x] tmux window names - icons
 - [ ] lf - icons
-- [X] i3 window frame borders
-- [ ] SSH server 
+- [x] i3 window frame borders
+- [x] SSH server
+- [x] in focus tmux pane

@@ -154,7 +154,7 @@ Statusline.active = function()
     lsp(),
     "%=%#StatusLineFileType#",
     filetype(),
-    "%#StatusLineFilePosition#",
+    "%#StatusLinePosition#",
     lineinfo(),
   }
 end

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-set -x
+#set -x
+set -e
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
@@ -19,15 +20,19 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   exit 0
 fi
 
+new_session_flag=0
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
   tmux new-session -ds $selected_name -c $selected
   tmux set-environment -t $selected_name TMUX_SESSION_ROOT_DIR $selected
+  new_session_flag=1
 fi
 
 tmux switch-client -t $selected_name
-
-if [[ -e ${selected}/.tmux-setup.sh ]]; then
-  source ${selected}/.tmux-setup.sh ${selected_name}
+if [ $new_session_flag -eq 1 ]; then
+  if [[ -e ${selected}/.tmux-setup.sh ]]; then
+    cd ${selected}
+    source ${selected}/.tmux-setup.sh ${selected_name}
+  fi
 fi
 
 

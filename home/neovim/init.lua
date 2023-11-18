@@ -59,30 +59,3 @@ require ("auto-session").setup({
   auto_restore_enabled = true,
   auto_session_enabled = true,
 })
-
-
--- Function to set the highlighting of the current split
--- Define the highlight groups
-vim.api.nvim_command('highlight ActiveSplit ctermbg=Black guibg=#191724')
-
-vim.api.nvim_command('highlight InactiveSplit ctermbg=Black guibg=#1d1d2e')
-local function highlight_split()
-  -- Get all windows in the current tab
-  for _, win in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-    -- Check if the window is the current window
-    if win == vim.api.nvim_get_current_win() then
-      -- Set the highlight for the active window
-      vim.api.nvim_win_set_option(win, 'winhighlight', 'Normal:ActiveSplit,NormalNC:InactiveSplit')
-    else
-      -- Set the highlight for inactive windows
-      vim.api.nvim_win_set_option(win, 'winhighlight', 'Normal:InactiveSplit,NormalNC:InactiveSplit')
-    end
-  end
-end
-
--- Autocommands to trigger the highlight function on certain events
-vim.api.nvim_create_augroup('HighlightActiveSplit', { clear = true })
-vim.api.nvim_create_autocmd({ 'WinEnter', 'WinLeave', 'BufEnter' }, {
-  group = 'HighlightActiveSplit',
-  callback = highlight_split,
-})

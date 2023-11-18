@@ -11,12 +11,16 @@
     
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	outputs = inputs @ {
 		self, 
 		nixpkgs,
 		home-manager,
+		darwin,
 		nix-index-database,
 		...
 		}: {
@@ -122,6 +126,20 @@
               ./system
               ./home
               nix-index-database.nixosModules.nix-index #https://github.com/nix-community/nix-index-database
+            ];
+          };
+        };
+        darwinConfigurations = {
+          A2130862 = darwin.lib.darwinSystem{
+            system = "aarch64-darwin";
+            modules = [
+              ./machines/work-mac
+              home-manager.darwinModules.home-manager{
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                };
+              }
             ];
           };
         };

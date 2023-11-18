@@ -9,10 +9,12 @@ let
 	#alert = "#A54242";
 	#disabled = "#707880";
   
-  background = "#191724";
+  background = "#FF191724";
   background-transparent = "#FF191724";
   background-alt = "#26233a";
   foreground = "#e0def4";
+  #background-transparent = "#e0def4";
+  #foreground="#191724";
   #https://materialpalettes.com/
   primary = "#f6c177";
   secondary = "#124d63";
@@ -55,7 +57,8 @@ in {
         border-color = "#00000000";
 #padding = 10;
 #padding-left = 1;
-#padding-right = 1;
+        padding-right = 2;
+        padding-left = 2;
 
         module-margin-left = 0;
         module-margin-right = 0;
@@ -63,25 +66,28 @@ in {
         separator = " ";
         separator-foreground = "${disabled}";
 # font-0 = "FiraCode Nerd Font:size=12;2;style=bold";
-        font-0 = "JetbrainsMono Nerd Font:size=10:weight=bold;4";
-        font-1 = "JetbrainsMono Nerd Font:size=10:weight=bold;4";
+        font-0 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
+        font-1 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
         font-2 = "JetbrainsMono Nerd Font Mono:size=20:weight=bold;7";
+        font-3 = "JetbrainsMono Nerd Font Mono:size=15:weight=bold;7";
+      
         modules-left="xworkspaces xwindow";
-        modules-right = "tray filesystem memory cpu network battery date";
+        modules-right = "filesystem memory cpu network battery tray date";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
         wm-restack = "i3";
         enable-ipc = true;
 
-        tray-position = "right";
-        tray-maxsize = 30;
-        tray-padding = 10;
-        tray-offset-x = 0;
+        #tray-position = "right";
+        #tray-maxsize = 20;
+        #tray-padding = 10;
+        #tray-offset-x = 0;
       };
 
       "module/tray" = {
         type = "internal/tray";
+        tray-size = "45%";
       };
 
       "module/xworkspaces" = {
@@ -132,7 +138,7 @@ in {
         interval = 5;
         date = "%a %b %d %l:%M %p ";
         label = "%date%";
-        label-padding-x = 2;
+        label-padding-x = 0;
 #label-foreground = "${primary}";
       };
 
@@ -142,13 +148,13 @@ in {
 
         interval = 3;
 
-        format = "󰍛 <label>";
+        format = "%{T4}󰍛 %{T-}<label>";
 #format-background = tertiary;
 #format-foreground = secondary;
         format-padding = 1;
 
         label = "%gb_used%/%gb_total%";
-        format-underline = tertiary;
+        #format-underline = tertiary;
         label-font = 2;
       };
 
@@ -157,8 +163,8 @@ in {
 
         interval = "0.5";
 
-        format = "󰻠 <label>";
-        format-underline = quaternary;
+        format = "%{T4}󰻠 %{T-}<label>";
+        # jformat-underline = quaternary;
 
 #format-foreground = quaternary;
 #format-background = secondary;
@@ -234,18 +240,20 @@ in {
         type = "internal/fs";
         mount-0 = "/";
         fixed-values = false;
-        label-mounted = "󰋊 %used%/%free%";
+        format-mounted = "<label-mounted>";
+        label-mounted = "%{T4}󰋊 %{T-}%used%/%free%";
         label-mounted-font = 2;
-        label-mounted-underline = secondary;
+
+        #label-mounted-underline = secondary;
       };
 
       "module/network" = {
         type = "internal/network";
         interface = "enp0s5";
         interval = "3.0";
-        label-connected = "󰛴 %downspeed% 󰛶 %upspeed%";
+        label-connected = "%{T4}󰛴 %{T-}%downspeed% %{T4}󰛶 %{T-}%upspeed%";
         label-connected-font = 2;
-        label-connected-underline = quinary;
+        #label-connected-underline = quinary;
         
 
         label-disconnected = "󰲛 OFFLINE";
