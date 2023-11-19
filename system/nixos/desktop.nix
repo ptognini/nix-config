@@ -1,5 +1,4 @@
-{ config, pkgs, userDetails, desktopDetails,...}:
-{
+{ config, pkgs, userDetails, desktopDetails, ... }: {
   services = {
     xserver = {
       dpi = desktopDetails.dpi;
@@ -13,35 +12,36 @@
         gdm.enable = true;
       };
       windowManager.i3 = {
-       	enable = true;
-	      extraPackages = with pkgs; [
-		      rofi
-            pavucontrol
-            xcolor
-            xclip
-            xdo
-            xdotool
-            xsel
-            xfce.exo
-            #xfce.xfce4-notifyd
-            xfce.xfce4-appfinder
-            firefox
-	      ];
-	      extraSessionCommands = ''
+        enable = true;
+        extraPackages = with pkgs; [
+          rofi
+          pavucontrol
+          xcolor
+          xclip
+          xdo
+          xdotool
+          xsel
+          xfce.exo
+          #xfce.xfce4-notifyd
+          xfce.xfce4-appfinder
+          firefox
+          font-manager
+        ];
+        extraSessionCommands = ''
           xrandr --output Virtual-1 --auto
-	      '';
+        '';
       };
 
       layout = "us";
-       xkbOptions = "caps:escape";
+      xkbOptions = "caps:escape";
 
       libinput = {
-	      enable = true;
-	      touchpad.tapping = true;
-	      touchpad.naturalScrolling = true;
-	      touchpad.scrollMethod = "twofinger";
-	      touchpad.disableWhileTyping = false;
-	      touchpad.clickMethod = "clickfinger";
+        enable = true;
+        touchpad.tapping = true;
+        touchpad.naturalScrolling = true;
+        touchpad.scrollMethod = "twofinger";
+        touchpad.disableWhileTyping = false;
+        touchpad.clickMethod = "clickfinger";
       };
     };
     gnome.gnome-keyring.enable = true;
@@ -49,22 +49,24 @@
     gvfs.enable = true;
     tumbler.enable = true;
   };
-  
+
   programs = {
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce;[
-        thunar-archive-plugin thunar-volman thunar-media-tags-plugin
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
       ];
     };
     dconf.enable = true;
   };
-  
- # xdg.portal = {
- #   enable = true;
- #   extraPortals = [
- #     pkgs.xdg-desktop-portal-kde
- #   ];
- # };
-   
+
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-kde
+  #   ];
+  # };
+
 }

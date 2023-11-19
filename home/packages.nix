@@ -21,6 +21,7 @@ in {
     escrotum # screen recording
     gnupg
     feh
+    cdrkit # to create iso files
 
     # DEVELOPMENT
     jetbrains.idea-ultimate

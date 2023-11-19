@@ -15,4 +15,6 @@
 - [x] clean up mac os configuration
 - [ ] configure image preview uezburg with lf
 - [ ] adjust all file associations/xdg mime preferences
+- [ ] configure font preview -> https://github.com/sdushantha/fontpreview
+- [ ] configure thunar actions
 
