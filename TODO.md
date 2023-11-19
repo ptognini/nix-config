@@ -14,3 +14,5 @@
 - [x] in focus tmux pane
 - [x] clean up mac os configuration
 - [ ] configure image preview uezburg with lf
+- [ ] adjust all file associations/xdg mime preferences
+
