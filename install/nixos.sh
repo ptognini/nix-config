@@ -55,9 +55,9 @@ nix-env -iA nixos.nixFlakes
 git clone https://github.com/andreaugustoaragao/nix-config
 cd nix-config
 echo "Please enter username (eg.: aragao): "
-read userName
+read userName < /dev/tty
 echo "Please enter full name (eg.: Andre Aragao): "
-read fullName
+read fullName < /dev/tty
 
 while true; do
     read -p "You selected $userName - $fullName. Proceed (y/n)? " yn < /dev/tty
@@ -72,10 +72,8 @@ oldFullName="Andre Aragao"
 sed -i "s/$oldUserName/$$userName/g" flake.nix
 sed -i "s/$oldFullName/$fullName/g" flake.nix
 
-
-
 while true; do
-    read -p "enter utm for UTM or prl for Parallels(utm/prl): " virtSystem < /dev/tty
+    read -p "enter utm for UTM or prl for Parallels (utm/prl): " virtSystem < /dev/tty
     case $virtSystem in
         [prl]* ) break;;
         [utm]* ) break;;
