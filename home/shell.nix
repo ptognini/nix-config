@@ -6,8 +6,8 @@
 				k = "kubectl";
 				dcu = "docker compose up";
   };
-	programs = {
 
+	programs = {
 	  nix-index = {
 	    enable = true;
 	    enableBashIntegration = true;
@@ -67,7 +67,7 @@
         command_timeout = 1200;
         scan_timeout = 10;
         format = ''
-          [](bold cyan) $directory$cmd_duration$all$kubernetes$azure$docker_context$time
+          [](bold cyan) $directory$cmd_duration$all$kubernetes$azure$docker_context$time
           $character'';
         directory = {
           home_symbol = " ";
@@ -92,7 +92,7 @@
 				};
 				kubernetes = {
 				  #style = "bg:#303030 fg:#ffffff";
-				  style = "bold fg:#2e6ce6";
+				  style = "fg:#2e6ce6";
 					#format = "\\[[󱃾 :($cluster)]($style)\\]";
 					format = "[ 󱃾 ($cluster)]($style)";
 					disabled = false;
