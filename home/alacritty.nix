@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{ stdenv, pkgs, ... }:
+let 
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+in
 {
   programs.alacritty = {
     enable = true;
@@ -10,15 +14,16 @@
         padding = { y = 5; x = 5; };
         opacity = 0.95;
         dynamic_title = true;
+        dpi = 192;
       };
 
       font = {
         normal.family = "JetbrainsMono Nerd Font";
-        normal.style = "Bold";
-        bold.style = "ExtraBold";
-        italic.style = "Bold Italic";
-        bold_italic.stype = "ExtraBold Italic";
-        size = 10.0;
+        normal.style = if isLinux then "Bold" else "Regular";
+        bold.style = if isLinux then "ExtraBold" else "Bold";
+        italic.style = if isLinux then "Bold Italic" else "Italic";
+        bold_italic.stype = if isLinux then "ExtraBold Italic" else "Bold Italic";
+        size = if isLinux then 9 else 12; 
       };
 
       shell = { program = "${pkgs.fish}/bin/fish"; };
