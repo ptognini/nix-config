@@ -24,8 +24,8 @@ in {
     cdrkit # to create iso files
 
     # DEVELOPMENT
-    jetbrains.idea-ultimate
-    jetbrains.goland
+    #jetbrains.idea-ultimate
+    #jetbrains.goland
     default-python
     jdk17
     gradle

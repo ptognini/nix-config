@@ -12,4 +12,6 @@ MacOS Desktop Experience, although I love the hardware(M2).
 === Linux VM ===
 
 1. Download NixOS minimal ISO from https://nixos.org/download
-2. 
+2. Using UTM or Parallels, create a VM using the downloaded iso
+3. sudo -i
+4. 

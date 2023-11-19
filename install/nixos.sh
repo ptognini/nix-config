@@ -60,7 +60,7 @@ echo "Please enter full name (eg.: Andre Aragao): "
 read fullName < /dev/tty
 
 while true; do
-    read -p "You selected login: $userName - full name: $fullName. Proceed (y/n)? " yn < /dev/tty
+    read -p "You selected: login: $userName/full name: $fullName. Proceed (y/n)? " yn < /dev/tty
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) echo "Exiting."; exit;;
