@@ -35,6 +35,7 @@ in {
     binutils
     gdb
     rustup
+    lua-language-server
 
     lazygit
 

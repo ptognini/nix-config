@@ -2,14 +2,15 @@
 - [ ] fix git/seahorse git credentials/auto login
 - [x] get SSH to work correctly with github and bb
 - [ ] install vscode server
-- [ ] configure GIT
+- [x] configure GIT
 - [x] fix dunst icons
 - [ ] java configuration for vscode
 - [ ] java configuration for nvim
 - [ ] maven configuration
 - [x] tmux window names - icons
-- [ ] lf - icons
+- [x] lf - icons
 - [x] i3 window frame borders
 - [x] SSH server
 - [x] in focus tmux pane
-- [ ] clean up mac os configuration
+- [x] clean up mac os configuration
+- [ ] configure image preview uezburg with lf

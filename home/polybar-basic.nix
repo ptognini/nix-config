@@ -1,14 +1,14 @@
 { pkgs, ... }:
-let 
+let
 
-	#background = "#282A2E";
-	#background-alt = "#373B41";
-	#foreground = "#C5C8C6";
-	#primary = "#F0C674";
-	#secondary = "#8ABEB7";
-	#alert = "#A54242";
-	#disabled = "#707880";
-  
+  #background = "#282A2E";
+  #background-alt = "#373B41";
+  #foreground = "#C5C8C6";
+  #primary = "#F0C674";
+  #secondary = "#8ABEB7";
+  #alert = "#A54242";
+  #disabled = "#707880";
+
   background = "#FF191724";
   background-transparent = "#FF191724";
   background-alt = "#26233a";
@@ -18,7 +18,7 @@ let
   #https://materialpalettes.com/
   primary = "#f6c177";
   secondary = "#124d63";
-  tertiary ="#31748f";
+  tertiary = "#31748f";
   quaternary = "#5b96b2";
   quinary = "#b4def0";
 
@@ -43,20 +43,20 @@ in {
         bottom = false;
         fixed-center = true;
         override-redirect = true;
-#        width = "99%";
-#        offset-x = "32";
+        #        width = "99%";
+        #        offset-x = "32";
         offset-y = "0";
         height = 65;
         #radius = 25;
-#offset-x = 150;
-#offset-y = 150;
+        #offset-x = 150;
+        #offset-y = 150;
         background = "${background-transparent}";
         foreground = "${foreground}";
         line-size = "2pt";
         border-size = "0pt";
         border-color = "#00000000";
-#padding = 10;
-#padding-left = 1;
+        #padding = 10;
+        #padding-left = 1;
         padding-right = 2;
         padding-left = 2;
 
@@ -65,13 +65,13 @@ in {
 
         separator = " ";
         separator-foreground = "${disabled}";
-# font-0 = "FiraCode Nerd Font:size=12;2;style=bold";
+        # font-0 = "FiraCode Nerd Font:size=12;2;style=bold";
         font-0 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
         font-1 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
         font-2 = "JetbrainsMono Nerd Font Mono:size=20:weight=bold;7";
         font-3 = "JetbrainsMono Nerd Font Mono:size=15:weight=bold;7";
-      
-        modules-left="xworkspaces xwindow";
+
+        modules-left = "xworkspaces xwindow";
         modules-right = "filesystem memory cpu network battery tray date";
 
         cursor-click = "pointer";
@@ -93,15 +93,16 @@ in {
       "module/xworkspaces" = {
         type = "internal/i3";
         format = "<label-state> <label-mode>";
-        ws-icon-0 = "1;  "; #terminal
-        ws-icon-1 = "2;  "; #browser
-        ws-icon-2 = "3; 󰊻 "; #teams
-        ws-icon-3 = "4; 󰴢 "; #outlocker
-        ws-icon-4 = "5;  "; #idea
-        ws-icon-5 = "6;  "; #rocket chat
-        ws-icon-6 = "7; 󱔘 "; #documents: pdfs and books and images and powerpoint and excel
-        ws-icon-7 = "8;  "; #music
-        ws-icon-8 = "9; 󱜸 "; #chat gpt
+        ws-icon-0 = "1;  "; # terminal
+        ws-icon-1 = "2;  "; # browser
+        ws-icon-2 = "3; 󰊻 "; # teams
+        ws-icon-3 = "4; 󰴢 "; # outlocker
+        ws-icon-4 = "5;  "; # idea
+        ws-icon-5 = "6;  "; # rocket chat
+        ws-icon-6 =
+          "7; 󱔘 "; # documents: pdfs and books and images and powerpoint and excel
+        ws-icon-7 = "8;  "; # music
+        ws-icon-8 = "9; 󱜸 "; # chat gpt
         ws-icon-default = "  ";
 
         label-focused = "%icon%";
@@ -116,10 +117,10 @@ in {
 
         label-visible = "%icon%";
         label-visible-font = 3;
- #       label-visible-padding = 1;
+        #       label-visible-padding = 1;
 
         label-urgent = "%icon%";
-  #      label-urgent-padding = 1;
+        #      label-urgent-padding = 1;
         label-urgent-background = "${alert}";
         label-urgent-font = 3;
         #label-active-background = "${background-alt}";
@@ -139,9 +140,8 @@ in {
         date = "%a %b %d %l:%M %p ";
         label = "%date%";
         label-padding-x = 0;
-#label-foreground = "${primary}";
+        #label-foreground = "${primary}";
       };
-
 
       "module/memory" = {
         type = "internal/memory";
@@ -149,8 +149,8 @@ in {
         interval = 3;
 
         format = "%{T4}󰍛 %{T-}<label>";
-#format-background = tertiary;
-#format-foreground = secondary;
+        #format-background = tertiary;
+        #format-foreground = secondary;
         format-padding = 1;
 
         label = "%gb_used%/%gb_total%";
@@ -166,15 +166,14 @@ in {
         format = "%{T4}󰻠 %{T-}<label>";
         # jformat-underline = quaternary;
 
-#format-foreground = quaternary;
-#format-background = secondary;
-#format-padding = 1;
+        #format-foreground = quaternary;
+        #format-background = secondary;
+        #format-padding = 1;
 
         label = "%percentage:2%%";
         #label-underling = secondary;
         label-font = 2;
       };
-
 
       "module/battery" = {
         type = "internal/battery";
@@ -221,7 +220,7 @@ in {
         expand-left = true;
 
         format = "<label-toggle> <menu>";
-#format-background = secondary;
+        #format-background = secondary;
         format-padding = 1;
 
         label-open = " ";
@@ -241,7 +240,7 @@ in {
         mount-0 = "/";
         fixed-values = false;
         format-mounted = "<label-mounted>";
-        label-mounted = "%{T4}󰋊 %{T-}%used%/%free%";
+        label-mounted = "%{T4}󰋊 %{T-}%used%/%total%";
         label-mounted-font = 2;
 
         #label-mounted-underline = secondary;
@@ -254,7 +253,6 @@ in {
         label-connected = "%{T4}󰛴 %{T-}%downspeed% %{T4}󰛶 %{T-}%upspeed%";
         label-connected-font = 2;
         #label-connected-underline = quinary;
-        
 
         label-disconnected = "󰲛 OFFLINE";
         label-disconnected-foreground = alert;
