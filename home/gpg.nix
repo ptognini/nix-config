@@ -4,12 +4,18 @@
   programs.gpg.homedir = "${config.xdg.dataHome}/gnupg";
   programs.gpg.mutableKeys = true;
   programs.gpg.mutableTrust = true;
+
   services.gpg-agent = {
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableExtraSocket = true;
+    defaultCacheTtl = 60 * 60 * 8; # in seconds
+    defaultCacheTtlSsh = 60 * 60 * 8;
+    enableSshSupport = true;
     enableScDaemon = false; #no smart card
-    #pinentryFlavor = lib.mkDefault "curses";
+    sshKeys = [
+       "7E94299ADBECE24CBF21A28F5A6877BAE2EADC11"
+    ];
   };
 }

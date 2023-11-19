@@ -131,12 +131,21 @@
 	home.sessionVariables = {
 		PAGER = "less";
 		EDITOR = "nvim";
-		VISUAL = "neovide";
+		VISUAL = "nvim";
 	};
   
   home.packages = with pkgs; [ 
     lolcat
     fortune
     entr
+    neofetch
+    nixfmt
+    bottom
+    gdu
+    p7zip
+    tree
+    dwt1-shell-color-scripts
+    htop
+    lua-language-server
   ];
 }

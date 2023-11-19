@@ -12,3 +12,4 @@
 - [x] i3 window frame borders
 - [x] SSH server
 - [x] in focus tmux pane
+- [ ] clean up mac os configuration

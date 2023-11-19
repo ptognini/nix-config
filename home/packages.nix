@@ -15,18 +15,16 @@ let
 in {
   home.packages = with pkgs; [
 
-# TERMINAL
+    # TERMINAL
     any-nix-shell
-    neofetch  
-    escrotum      #screen recording
-    gnupg    
+    neofetch
+    escrotum # screen recording
+    gnupg
     feh
-    lolcat
 
-# DEVELOPMENT
+    # DEVELOPMENT
     jetbrains.idea-ultimate
     jetbrains.goland
-    nixfmt
     default-python
     jdk17
     gradle
@@ -37,7 +35,7 @@ in {
     binutils
     gdb
     rustup
-    
+
     lazygit
 
     # kafka
@@ -57,7 +55,6 @@ in {
 
     # DEFAULT
     pavucontrol
-    bottom
     neovide
     fd
     libnotify

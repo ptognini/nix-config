@@ -1,7 +1,7 @@
 {
-	description = "Nixos setup for development";
+  description = "Nixos setup for development";
 
-	inputs = {
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -16,130 +16,117 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-	outputs = inputs @ {
-		self, 
-		  nixpkgs,
-		  home-manager,
-		  darwin,
-		  nix-index-database,
-		  ...
-	}: {
-    nixosConfigurations = let
-      userDetails = {
-        fullName = "Andre Aragao";
-        userName = "aragao";
-      };
-      desktopDetails = {
-        dpi = 192;
-      };
+  outputs =
+    inputs@{ self, nixpkgs, home-manager, darwin, nix-index-database, ... }: {
+      nixosConfigurations = let
+        userDetails = {
+          fullName = "Andre Aragao";
+          userName = "aragao";
+        };
+        desktopDetails = { dpi = 192; };
 
       in {
-#TODO: AVOID THE REPETITION  
-      prl-dev = nixpkgs.lib.nixosSystem rec{
-        system = "aarch_64-linux";
-        specialArgs = {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs;
-          inherit system;
-          inherit userDetails;
-          inherit desktopDetails;
+        #TODO: AVOID THE REPETITION  
+        prl-dev = nixpkgs.lib.nixosSystem rec {
+          system = "aarch_64-linux";
+          specialArgs = {
+            inherit (nixpkgs) lib;
+            inherit inputs nixpkgs;
+            inherit system;
+            inherit userDetails;
+            inherit desktopDetails;
+          };
+
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${userDetails.userName} = {
+                  home = {
+                    username = "${userDetails.userName}";
+                    homeDirectory = "/home/${userDetails.userName}";
+                    # do not change this value
+                    stateVersion = "23.11";
+                  };
+
+                  # Let Home Manager install and manage itself.
+                  programs.home-manager.enable = true;
+                };
+                # make root great again
+                users.root = { pkgs, ... }: {
+                  home.username = "root";
+                  home.homeDirectory = "/root";
+                  home.stateVersion = "23.11";
+                  programs.home-manager.enable = true;
+                  imports = [ ./home/nvim.nix ./home/shell.nix ];
+                };
+              };
+            }
+            ./machines/prl-dev
+            ./system/nixos
+            ./home
+            nix-index-database.nixosModules.nix-index # https://github.com/nix-community/nix-index-database
+          ];
         };
 
-        modules = [
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${userDetails.userName} = {
-                home = {
-                  username = "${userDetails.userName}";
-                  homeDirectory = "/home/${userDetails.userName}";
-# do not change this value
-                  stateVersion = "23.11";
-                };
+        utm-dev = nixpkgs.lib.nixosSystem rec {
+          system = "aarch_64-linux";
+          specialArgs = {
+            inherit (nixpkgs) lib;
+            inherit inputs nixpkgs;
+            inherit system;
+            inherit userDetails;
+            inherit desktopDetails;
+          };
 
-# Let Home Manager install and manage itself.
-                programs.home-manager.enable = true;
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${userDetails.userName} = {
+                  home = {
+                    username = "${userDetails.userName}";
+                    homeDirectory = "/home/${userDetails.userName}";
+                    # do not change this value
+                    stateVersion = "23.11";
+                  };
+
+                  # Let Home Manager install and manage itself.
+                  programs.home-manager.enable = true;
+                };
+                # make root great again
+                users.root = { pkgs, ... }: {
+                  home.username = "root";
+                  home.homeDirectory = "/root";
+                  home.stateVersion = "23.11";
+                  programs.home-manager.enable = true;
+                  imports = [ ./home/nvim.nix ./home/shell.nix ];
+                };
               };
-# make root great again
- 							users.root = { pkgs, ...}:{
-								home.username = "root";
-								home.homeDirectory = "/root";
-								home.stateVersion = "23.11";
-								programs.home-manager.enable = true;
-								imports = [
-									./home/nvim.nix
-									  ./home/shell.nix
-								];
-							};
-            };
-          }
-        ./machines/prl-dev
-          ./system/nixos
-          ./home
-          nix-index-database.nixosModules.nix-index #https://github.com/nix-community/nix-index-database
+            }
+            ./machines/utm-dev
+            ./system/nixos
+            ./home
+            nix-index-database.nixosModules.nix-index # https://github.com/nix-community/nix-index-database
           ];
+        };
       };
 
-      utm-dev = nixpkgs.lib.nixosSystem rec{
-        system = "aarch_64-linux";
-        specialArgs = {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs;
-          inherit system;
-          inherit userDetails;
-          inherit desktopDetails;
-        };
-
-        modules = [
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${userDetails.userName} = {
-                home = {
-                  username = "${userDetails.userName}";
-                  homeDirectory = "/home/${userDetails.userName}";
-# do not change this value
-                  stateVersion = "23.11";
-                };
-
-# Let Home Manager install and manage itself.
-                programs.home-manager.enable = true;
-              };
-# make root great again
- 							users.root = { pkgs, ...}:{
-								home.username = "root";
-								home.homeDirectory = "/root";
-								home.stateVersion = "23.11";
-								programs.home-manager.enable = true;
-								imports = [
-									./home/nvim.nix
-									  ./home/shell.nix
-								];
-							};
-            };
-          }
-        ./machines/utm-dev
-          ./system/nixos
-          ./home
-          nix-index-database.nixosModules.nix-index #https://github.com/nix-community/nix-index-database
-          ];
-      };
-    };
-
-    darwinConfigurations = {
-      A2130862 = darwin.lib.darwinSystem  {
-        system = "aarch64-darwin";
-        specialArgs = {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs;
-        };
-        modules = [
-           ./system/macos
-            home-manager.darwinModules.home-manager{
+      darwinConfigurations = {
+        A2130862 = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          specialArgs = {
+            inherit (nixpkgs) lib;
+            inherit inputs nixpkgs;
+          };
+          modules = [
+            ./system/macos
+            home-manager.darwinModules.home-manager
+            {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -148,22 +135,19 @@
                   home = {
                     username = "aragao";
                     homeDirectory = "/Users/aragao";
-# do not change this value
+                    # do not change this value
                     stateVersion = "23.11";
                   };
-                  imports = [
-                    ./home/nvim.nix
-                    ./home/shell.nix
-                    ./home/alacritty.nix
-                  ];
-# Let Home Manager install and manage itself.
+                  imports =
+                    [ ./home/nvim.nix ./home/shell.nix ./home/alacritty.nix ];
+                  # Let Home Manager install and manage itself.
                   programs.home-manager.enable = true;
                 };
               };
             }
-        ];
+          ];
+        };
       };
-  };
-};
-}  
+    };
+}
 

@@ -1,67 +1,69 @@
-{ pkgs, ... }:{
-## NIX #########################
-    nix = {
-	    package = pkgs.nixFlakes;
-	    gc = {
-	      automatic = true;
-	      #interval = "weekly";
-	      options = "--delete-older-than 7d";
-	    };
-	  extraOptions = ''
-		  experimental-features = nix-command flakes
-		  '';
+{ pkgs, ... }: {
+  ## NIX #########################
+  nix = {
+    package = pkgs.nixFlakes;
+    gc = {
+      automatic = true;
+      #interval = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
- 
+
   services.nix-daemon.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-## USERS ##########################
+  ## USERS ##########################
   users.users.aragao = {
     home = "/Users/aragao";
     shell = pkgs.fish;
   };
 
-programs = {
-	fish.enable = true;
-        zsh.enable = true;
-};
+  programs = {
+    fish.enable = true;
+    zsh.enable = true;
+  };
 
-environment = {
-	shells = with pkgs; [fish];
-	loginShell = "${pkgs.fish}/bin/fish -l";
-	pathsToLink = [ "/Applications" ];
-};
+  environment = {
+    shells = with pkgs; [ fish ];
+    loginShell = "${pkgs.fish}/bin/fish -l";
+    pathsToLink = [ "/Applications" ];
+  };
 
-## FONTS ##########################
+  ## FONTS ##########################
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
-	  (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ]; })
-	    dejavu_fonts
-      roboto
-      roboto-mono
-      roboto-slab
-      material-design-icons
-      material-icons
-      source-code-pro
-      source-sans-pro
+    (nerdfonts.override {
+      fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ];
+    })
+    dejavu_fonts
+    roboto
+    roboto-mono
+    roboto-slab
+    material-design-icons
+    material-icons
+    source-code-pro
+    source-sans-pro
   ];
 
-## PACKAGES
+  ## PACKAGES
   environment.systemPackages = with pkgs; [
-	ripgrep
-	fd
-	less
-	curl
-	speedtest-cli
-	coreutils
- 	nixfmt
-	jq
-	nodePackages.bash-language-server
-	nixd
-	gdu
+    ripgrep
+    fd
+    less
+    curl
+    speedtest-cli
+    coreutils
+    nixfmt
+    jq
+    nodePackages.bash-language-server
+    nixd
+    gdu
   ];
 
-## HOMEBREW
+  ## HOMEBREW
   homebrew = {
     enable = true;
     onActivation = {
@@ -85,7 +87,7 @@ environment = {
     ];
   };
 
-## MAC OS X #######################
+  ## MAC OS X #######################
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;

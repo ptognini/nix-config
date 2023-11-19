@@ -11,7 +11,6 @@
   environment.systemPackages = with pkgs; [
     (pkgs.nnn.override { withNerdIcons = true; })
     lf
-    ranger
     starship
     inetutils
     unzip
