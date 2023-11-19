@@ -54,13 +54,13 @@ nix-env -iA nixos.nixFlakes
 
 git clone https://github.com/andreaugustoaragao/nix-config
 cd nix-config
-echo "Please enter username (eg.: aragao): "
+echo "Please enter login (eg.: aragao): "
 read userName < /dev/tty
 echo "Please enter full name (eg.: Andre Aragao): "
 read fullName < /dev/tty
 
 while true; do
-    read -p "You selected $userName - $fullName. Proceed (y/n)? " yn < /dev/tty
+    read -p "You selected login: $userName - full name: $fullName. Proceed (y/n)? " yn < /dev/tty
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) echo "Exiting."; exit;;
@@ -69,16 +69,16 @@ while true; do
 done
 oldUserName="aragao"
 oldFullName="Andre Aragao"
-sed -i "s/$oldUserName/$$userName/g" flake.nix
+sed -i "s/$oldUserName/$userName/g" flake.nix
 sed -i "s/$oldFullName/$fullName/g" flake.nix
 
 while true; do
-    read -p "enter utm for UTM or prl for Parallels (utm/prl): " virtSystem < /dev/tty
+    read -p "Enter utm for UTM or prl for Parallels (utm/prl): " virtSystem < /dev/tty
     case $virtSystem in
         [prl]* ) break;;
         [utm]* ) break;;
-        * ) echo "Please answer utm or prl.";;
+        * ) echo "Invalid option $virtSystem. Try again or Ctrl+C to exit.";;
     esac
 done
-nixos-install -- --flake .#$virtSystem-dev < /dev/tty
+nixos-install --flake .#$virtSystem-dev < /dev/tty
 
