@@ -37,14 +37,9 @@ environment = {
   fonts.fonts = with pkgs; [
 	  (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ]; })
 	    dejavu_fonts
-	    noto-fonts
-	    noto-fonts-cjk
-	    noto-fonts-emoji
-      terminus_font
       roboto
       roboto-mono
       roboto-slab
-      hasklig
       material-design-icons
       material-icons
       source-code-pro
@@ -57,12 +52,13 @@ environment = {
 	fd
 	less
 	curl
-	neovide
 	speedtest-cli
 	coreutils
  	nixfmt
 	jq
-	k6
+	nodePackages.bash-language-server
+	nixd
+	gdu
   ];
 
 ## HOMEBREW
