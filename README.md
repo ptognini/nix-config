@@ -2,11 +2,10 @@
 
 ![screenshot](./screenshots/screen.png)
 
-I use NIX for 2 purposes:
+I use NIX for 2 reasons:
 
 1. to configure my host MacOS
-2. to configure a Linux VM for my development work and as much other work as I can get away with as I don't like the 
-MacOS Desktop Experience, although I love the hardware(M2).
+2. to configure a Linux VM for my development work and any other work I can get away with (not a big fan of MacOS desktop - hardware is top notch though).
 
 ## What do I use in the Linux VM ##
 
@@ -30,7 +29,7 @@ projects. Projects are assumed to be under $HOME/projects/work and $HOME/project
 
 If you are using this and you are not me:
 
-* "I don't like X". This was highly customized to fit my current workflow. If you plan to use, I suggest you fork the code.
+* "I don't like X". This was highly customized to fit my current workflow. If you plan to use it, I suggest you fork the code.
 * I'm not an expert in NixOS, so yeah, the files could use some clean up and I will get ther one day.
 * The point of NixOS is to make the system reproducible, so I tend to keep as much configuration under control of nix as 
 possible. I recognize this can be annoying as every change require a system rebuild.
@@ -51,7 +50,8 @@ possible. I recognize this can be annoying as every change require a system rebu
 4. > curl -sS https://raw.githubusercontent.com/andreaugustoaragao/nix-config/main/install/nixos.sh|sh
 5. answer a few questions throughout the way (destination device, login name, full Name and the root password)
 6. > reboot
-6. when rebooting, the system will automatically login as the user entered during the install step. Don't forget to set a password
+7. when rebooting, the system will automatically login as the user entered during the install step. Don't forget to set a password
+8. after rebooting don't forget to clone this repo under projects/personal so changes can continue to be made
 
 ## Ideas and inspiration ##
 
