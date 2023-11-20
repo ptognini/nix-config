@@ -1,5 +1,7 @@
 # NIX-CONFIG #
 
+![screenshot](./screenshots/screen.png)
+
 I use NIX for 2 purposes:
 
 1. to configure my host MacOS
