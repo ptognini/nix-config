@@ -2,7 +2,7 @@
 
 ![screenshot](./screenshots/screen.png)
 
-I use NIX for 2 reasons:
+I use nix for 2 reasons:
 
 1. to configure my host MacOS
 2. to configure a Linux VM for my development work and any other work I can get away with (not a big fan of MacOS desktop - hardware is top notch though).
