@@ -51,7 +51,9 @@ possible. I recognize this can be annoying as every change require a system rebu
 5. answer a few questions throughout the way (destination device, login name, full Name and the root password)
 6. > reboot
 7. when rebooting, the system will automatically login as the user entered during the install step. Don't forget to set a password
-8. after rebooting don't forget to clone this repo under projects/personal so changes can continue to be made
+8. after rebooting don't forget to clone this repo under projects/personal
+9. if you are having issues with screen resolution (and have set retina mode in the VM configuration), try running
+10. >xrandr --output Virtual-1 --auto
 
 ## Ideas and inspiration ##
 
