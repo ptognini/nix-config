@@ -56,6 +56,7 @@ possible. I recognize this can be annoying as every change require a system rebu
 10. >xrandr --output Virtual-1 --auto
 
 ### Mac OS ###
+1. [follow the instructions here](https://nixos.org/download#nix-install-macos)
 
 ## Ideas and inspiration ##
 1. follow the instructions here: https://nixos.org/download#nix-install-macos
