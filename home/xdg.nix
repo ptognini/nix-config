@@ -139,6 +139,12 @@
           ${config.home.homeDirectory}/projects
 
         $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
+          ${config.home.homeDirectory}/projects/personal
+   
+        $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
+          ${config.home.homeDirectory}/projects/work
+
+        $DRY_RUN_CMD mkdir --parents $VERBOSE_ARG \
           ${config.home.homeDirectory}/screenshots
 
       '';

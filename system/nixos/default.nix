@@ -36,8 +36,10 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "docker" ];
       shell = pkgs.fish;
+      password = "password";
     };
   };
+  users.mutableUsers = true;
   programs.fish.enable =
     true; # make shell assertion happy, it doesn't know about home manager.
   environment.pathsToLink = [ "/libexec" ];

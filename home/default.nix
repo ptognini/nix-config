@@ -33,7 +33,6 @@
       ./gpg.nix
       ./dunst.nix
     ];
-    xsession.enable = true;
     home.sessionVariables = {
       JAVAX_NET_SSL_TRUSTSTORE = "$HOME/.config/java-cacerts";
     }; 
