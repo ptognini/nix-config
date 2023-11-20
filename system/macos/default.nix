@@ -41,11 +41,6 @@
     dejavu_fonts
     roboto
     roboto-mono
-    roboto-slab
-    material-design-icons
-    material-icons
-    source-code-pro
-    source-sans-pro
   ];
 
   ## PACKAGES
@@ -84,6 +79,7 @@
       "utm"
       "microsoft-teams"
       "obsidian"
+      "flameshot"
     ];
   };
 
