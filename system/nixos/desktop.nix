@@ -9,7 +9,7 @@
           enable = true;
           user = "${userDetails.userName}";
         };
-        gdm.enable = true;
+        lightdm.enable = true;
       };
       windowManager.i3 = {
         enable = true;
