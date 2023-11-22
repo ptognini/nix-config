@@ -9,7 +9,6 @@
 {
   # available to root and ${userDetails.userName}
   environment.systemPackages = with pkgs; [
-    (pkgs.nnn.override { withNerdIcons = true; })
     lf
     starship
     inetutils

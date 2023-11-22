@@ -43,10 +43,12 @@
   programs.fish.enable =
     true; # make shell assertion happy, it doesn't know about home manager.
   environment.pathsToLink = [ "/libexec" ];
-
+  environment.binsh = "${pkgs.dash}/bin/dash"; #faster, consumes less memory
   # DOCKER
   virtualisation.docker.enable = true;
-
+  environment.systemPackages = with pkgs; [
+    docker-credential-helpers
+  ];
   # LOCATION SERVICES
   services.geoclue2.enable = true;
   location.provider = "geoclue2";

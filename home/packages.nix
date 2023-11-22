@@ -46,6 +46,7 @@ in {
 
     # cloud
     kubectl
+    stern
     kubelogin
     kubernetes-helm
     k9s
@@ -69,6 +70,8 @@ in {
     flameshot
     evince
     foliate
+    inkscape-with-extensions
+    libreoffice
   ];
 
 }

@@ -33,7 +33,7 @@ in
         bottom = 1;
       };
       gaps.smartBorders = "off";
-      defaultWorkspace = "worspace number 1";
+      defaultWorkspace = "workspace number 1";
       floating.criteria = [
         {class = "Pavucontrol";}
       ];

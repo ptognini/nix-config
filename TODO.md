@@ -17,4 +17,4 @@
 - [ ] adjust all file associations/xdg mime preferences
 - [ ] configure font preview -> https://github.com/sdushantha/fontpreview
 - [ ] configure thunar actions
-
+- [x] fix .desktop/rofi app icons

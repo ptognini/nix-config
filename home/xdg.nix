@@ -3,7 +3,51 @@
   pkgs,
   lib,
   ...
-}: {
+}: 
+let
+  chatGptIcon = pkgs.fetchurl {
+    url =
+      "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png";
+    sha256 = "024yhp9kqky0v9yviz9z60gwfqksvbx7vf8gads03idvvcja89hn";
+  };
+
+  msTeamsIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_teams_logo_icon_145726.png";
+    sha256 =  "0b9nmxm03r90a3fdfyzrwk4f7plv74699w5ir369nd24m0zx5ry3";
+ };
+
+ msOutlookIcon = pkgs.fetchurl {
+  url = "https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_outlook_logo_icon_145721.png";
+  sha256="0lwd3x2c3jgzi7pkynrahijbi5a2l60l49k98g9jvcvp8a5pk27a";
+ };
+
+ rocketChatIcon = pkgs.fetchurl {
+  url = "https://cdn.icon-icons.com/icons2/2621/PNG/512/brand_rocket_chat_icon_157334.png";
+  sha256 = "1rc3b8fgp6a4dpmndhp2b8fczhp7mmmxh624y58hr43xxzr7y1yb";
+ };
+
+ redditIcon = pkgs.fetchurl {
+  url = "https://cdn.icon-icons.com/icons2/1195/PNG/512/1490889653-reddit_82537.png";
+  sha256 = "01ja74q5i797s0cfhr8byqq1bzzix23hswimij663ylm864w7lna";
+ };
+
+ twitterIcon = pkgs.fetchurl {
+  url = "https://cdn.icon-icons.com/icons2/836/PNG/512/Twitter_icon-icons.com_66803.png";
+  sha256 = "1mlqxxj2rwwv439lvdv4k4djhmwk92lv1riywk94r9hcmk5bbs92";
+ };
+
+ vimCheatSheetIcon = pkgs.fetchurl {
+  url = "https://cdn.icon-icons.com/icons2/1381/PNG/512/vim_94609.png";
+  sha256 = "0fnrcrsrrnchrgjbg0hszynj2g2m674b3nc4ky8pdb3zgc1490sc";
+ };
+
+ youtubeMusicIcon = pkgs.fetchurl {
+  url ="https://cdn.icon-icons.com/icons2/3132/PNG/512/youtube_music_social_network_song_multimedia_icon_192250.png";
+  sha256 = "0hxwh8x4xmpa9rpmscds9sip08a6xz9s58xncd2mlnyzh8pa447b";
+ };
+
+in
+{
   home.packages = with pkgs; [
     xdg-utils # provides cli tools such as `xdg-mime` `xdg-open`
     xdg-user-dirs
@@ -25,12 +69,20 @@
       defaultApplications = let
         browser = ["chromium.desktop"];
         lf = ["lf.desktop"];
+        nvim = ["nvim.desktop"];
       in {
-        "application/json" = browser;
+        
+        "application/json" = nvim;
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop"; 
 
         "text/html" = browser;
-        "text/xml" = browser;
+        "text/xml" = nvim;
+        "text/plain" = nvim;
+        "text/markdown" = nvim;
+        "text/x-go" = nvim;
+        "text/x-java" = nvim;
+        "text/x-python" = nvim;
+        "application/x-shellscript" = nvim;
         "application/xml" = browser;
         "application/xhtml+xml" = browser;
         "application/xhtml_xml" = browser;
@@ -46,9 +98,10 @@
         "x-scheme-handler/ftp" = browser;
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
-        "x-scheme-handler/unknown" = browser;
+        "x-scheme-handler/unknown" = nvim;
         "inode/directory" = "thunar.desktop";        
         "image/*" = browser;
+        
 
       };
 
@@ -73,60 +126,66 @@
 
   xdg.desktopEntries = {
     tmux-default= {
-      name = "Tmux default session";
+      name = "Tmux Default Session";
       genericName = "Tmux default session";
       exec = "alacritty --class Alacritty,default-tmux -e tmux new-session -s default -A";
       icon = "utilities-terminal";
     };
 
     teams = {
-      name = "MS Teams Web";
-      genericName = "MS Teams Collaboration";
+      name = "Teams";
+      genericName = "Microsoft Teams";
       exec = "chromium -app=https://teams.microsoft.com";
-      icon = "office-contact";
+      icon = msTeamsIcon;
     };
 
     outlook = {
-      name = "Outlook Web";
-      genericName = "MS Outlook for Web";
+      name = "Outlook";
+      genericName = "Microsoft Outlook";
       exec = "chromium -app=https://outlook.office.com";
-      icon = "mail-message-new-symbolic";
+      icon = msOutlookIcon; 
     };
 
     music = {
       name = "Youtube Music";
       genericName = "Youtube Music";
       exec = "chromium -app=https://music.youtube.com";
+      icon = youtubeMusicIcon;
     };
 
     vimCheatSheet = {
       name = "Vim Cheat Sheet";
       genericName = "Vim Cheat Sheet";
       exec = "chromium -app=https://vim.rtorr.com";
+      icon = vimCheatSheetIcon;
     };
 
     reddit = {
       name = "Reddit";
       genericName = "Reddit";
       exec = "chromium -app=https://reddit.com";
+      icon = redditIcon;
     };
 
     twitter = {
       name = "Twitter";
       genericName = "Twitter";
       exec = "chromium -app=https://x.com";
+      icon = twitterIcon;
     };
 
     chatgpt = {
       name = "ChatGPT";
       genericName = "ChatGPT";
       exec = "chromium -app=https://chat.openai.com";
+      icon = chatGptIcon;
     };
 
     rocketchat = {
       name = "Rocket Chat";
       genericName = "Rocket Chat";
       exec = "chromium -app=https://avaya.rocket.chat";
+      icon = rocketChatIcon; 
     };
   };
   
