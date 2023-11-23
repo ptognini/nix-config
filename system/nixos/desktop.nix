@@ -21,11 +21,17 @@
           xdo
           xdotool
           xsel
-          xfce.exo
-          #xfce.xfce4-notifyd
-          xfce.xfce4-appfinder
           firefox
           font-manager
+          neovide
+          pavucontrol
+          obsidian
+          zathura
+          #flameshot
+          evince
+          foliate
+          inkscape-with-extensions
+          libreoffice
         ];
         extraSessionCommands = ''
           xrandr --output Virtual-1 --auto
@@ -53,10 +59,11 @@
   programs = {
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-        thunar-media-tags-plugin
+      plugins = with pkgs; [
+        xfce.thunar-archive-plugin
+        xfce.thunar-volman
+        xfce.thunar-media-tags-plugin
+        gnome.file-roller
       ];
     };
     dconf.enable = true;

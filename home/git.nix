@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let isLinux = pkgs.stdenv.hostPlatform.isLinux;
 in {
   programs.git = {
@@ -18,21 +18,29 @@ in {
           pkgs.git.override { withLibsecret = true; }
         }/bin/git-credential-libsecret";
     };
-    ### check options here https://git-scm.com/docs/git-config
-    extraConfig = {
-      includeIf = {
-        "gitdir=~/projects/personal/" = {
-          userName = "andreaugustoaragao";
-          userEmail = "andrearag@gmail.com";
+
+    includes = [
+      {
+        condition="gitdir=${config.home.homeDirectory}/projects/personal/";
+        contents={
+          user = {
+              name = "andreaugustoaragao";
+              email = "andrearag@gmail.com";
+          };
         };
-      };
-      includeIf = {
-        "gitdir=~/projects/work/" = {
-          userName = "aragao";
-          userEmail = "aragao@avaya.com";
+      }
+      {
+        condition="gitdir=${config.home.homeDirectory}/projects/work/";
+        contents = {
+          user = {
+            name = "aragao";
+            email = "aragao@avaya.com";
+          };
         };
-      };
-    };
+      }
+    ];
+
+    #TODO review https://pickard.cc/posts/git-identity-home-manager/
   };
 }
 

@@ -15,7 +15,7 @@
       ./rofi.nix
       ./alacritty.nix
       ./packages.nix
-      ./polybar-basic.nix
+      ./polybar.nix
       ./picom.nix
       ./redshift.nix
       ./vscode.nix
@@ -32,11 +32,19 @@
       ./go.nix
       ./gpg.nix
       ./dunst.nix
+      ./file-managers.nix
     ];
     xsession.enable = true;
     home.sessionVariables = {
       JAVAX_NET_SSL_TRUSTSTORE = "$HOME/.config/java-cacerts";
-    }; 
-};
+      MINIKUBE_HOME="$HOME/.config";
+      DOCKER_CONFIG="$HOME/.config/docker";
+      AZURE_CONFIG_DIR="$HOME/.config/azure";
+    };
+    xdg.configFile.".minikube/certs" = {
+      source= ../system/nixos/certs;
+      recursive=true;
+    };
+  };
 }
 
