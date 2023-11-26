@@ -67,7 +67,7 @@ in
     mimeApps = {
       enable = true;
       defaultApplications = let
-        browser = ["chromium.desktop"];
+        browser = ["firefox.desktop"];
         lf = ["lf.desktop"];
         nvim = ["nvim.desktop"];
       in {
@@ -83,6 +83,7 @@ in
         "text/x-java" = nvim;
         "text/x-python" = nvim;
         "application/x-shellscript" = nvim;
+        "application/yaml"=nvim;
         "application/xml" = browser;
         "application/xhtml+xml" = browser;
         "application/xhtml_xml" = browser;

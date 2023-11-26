@@ -71,7 +71,7 @@ in {
         font-2 = "JetbrainsMono Nerd Font Mono:size=16:weight=bold;7";
         font-3 = "JetbrainsMono Nerd Font Mono:size=15:weight=bold;7";
 
-        modules-left = "os xworkspaces xwindow";
+        modules-left = "xworkspaces xwindow";
         modules-right = "filesystem memory cpu avaya network battery tray date powermenu";
 
         cursor-click = "pointer";
@@ -87,7 +87,8 @@ in {
 
       "module/tray" = {
         type = "internal/tray";
-        tray-size = "45%";
+        tray-size = "65%";
+        tray-spacing = 10;
       };
 
       "module/os" = {

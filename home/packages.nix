@@ -72,6 +72,7 @@ in {
     foliate
     inkscape-with-extensions
     libreoffice
+    _1password-gui
   ];
 
 }

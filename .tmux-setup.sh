@@ -1,2 +1,9 @@
 #!/bin/sh
-./activate-and-watch.sh
+tmux split-window -v -p 40 "./activate-and-watch.sh"
+tmux split-window -h
+tmux send-keys 'neofetch' C-m
+tmux select-pane -t 0
+tmux send-keys 'nvim' C-m
+tmux split-window -h
+tmux send-keys 'nvim TODO.md' C-m
+tmux select-pane -t 0

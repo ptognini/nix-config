@@ -59,3 +59,18 @@ require ("auto-session").setup({
   auto_restore_enabled = true,
   auto_session_enabled = true,
 })
+
+
+-- auto format nix files when saving
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.nix",
+    callback = function()
+        vim.cmd("undojoin | NixFmt")
+    end,
+})
+
+vim.api.nvim_create_user_command("NixFmt", function()
+    vim.cmd("%!nixfmt")
+end, {})
+
+

@@ -117,6 +117,11 @@ in
         always = false;
         notification = true;
       }
+      {
+        command = "1password --silent";
+        always = false;
+        notification = true;
+      }
       ];
     };
   };
