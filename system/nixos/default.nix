@@ -13,7 +13,9 @@
     ./tmux
     ./openssh.nix
   ];
-
+  nixpkgs.overlays = [
+    inputs.nurpkgs.overlay
+  ];
   # NETWORK
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
@@ -44,7 +46,9 @@
     true; # make shell assertion happy, it doesn't know about home manager.
   environment.pathsToLink = [ "/libexec" ];
   environment.binsh = "${pkgs.dash}/bin/dash"; #faster, consumes less memory
-
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
  # DOCKER and MINIKUBE
   virtualisation.docker.enable = true;
   environment.systemPackages = with pkgs; [

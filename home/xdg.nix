@@ -136,14 +136,16 @@ in
       name = "Teams";
       genericName = "Microsoft Teams";
       exec = "chromium -app=https://teams.microsoft.com";
-      icon = msTeamsIcon;
+      #icon = msTeamsIcon;
+      icon = "teams";
     };
 
     outlook = {
       name = "Outlook";
       genericName = "Microsoft Outlook";
       exec = "chromium -app=https://outlook.office.com";
-      icon = msOutlookIcon; 
+      #icon = msOutlookIcon;
+      icon = "ms-outlook";
     };
 
     music = {

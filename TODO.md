@@ -16,6 +16,10 @@
 - [ ] configure image preview uezburg with lf
 - [ ] adjust all file associations/xdg mime preferences
 - [ ] configure font preview -> https://github.com/sdushantha/fontpreview
-- [ ] configure thunar actions
+- [x] configure thunar actions
 - [x] fix .desktop/rofi app icons
 - [ ] add a frame around rofi
+- [ ] fix IBL plugin in NVIM 
+- [ ] fix chromium widevine support
+- [ ] k9s rose-pine color scheme
+

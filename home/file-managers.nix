@@ -42,5 +42,5 @@ in
   xdg.configFile."lf/icons" = { source = lfIcons; };
   xdg.configFile."lf/colors" = {source = lfColors; };
   xdg.configFile."Thunar/uca.xml" = { source = ./uca.xml; };
-  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml" = { source = ./thunar.xml; };
+  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/thunar.xml" = { source = ./thunar.xml; };
 }

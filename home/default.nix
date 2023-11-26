@@ -11,6 +11,7 @@
 {
   home-manager.users.${userDetails.userName} ={ 
     imports = [
+      ./firefox-webapp.nix
       ./i3.nix
       ./rofi.nix
       ./alacritty.nix
@@ -21,6 +22,7 @@
       ./vscode.nix
       ./shell.nix
       ./chromium.nix
+      ./firefox.nix
       ./gtk.nix
       ./nvim.nix
       ./git.nix

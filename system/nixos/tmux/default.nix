@@ -36,5 +36,10 @@
     in
       writeShellScriptBin "tmux-window-icons" scriptContent
     )
+    (let
+      scriptContent = builtins.readFile ./tmux-right-status;
+    in
+      writeShellScriptBin "tmux-right-status" scriptContent
+    )
   ];
 }

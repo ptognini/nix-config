@@ -55,7 +55,7 @@
     gvfs.enable = true;
     tumbler.enable = true;
   };
-
+  security.pam.services.lightdm.enableGnomeKeyring = true;
   programs = {
     thunar = {
       enable = true;

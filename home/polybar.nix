@@ -46,7 +46,7 @@ in {
         #        width = "99%";
         #        offset-x = "32";
         offset-y = "0";
-        height = 65;
+        height = 45;
         #radius = 25;
         #offset-x = 150;
         #offset-y = 150;
@@ -57,8 +57,8 @@ in {
         border-color = "#00000000";
         #padding = 10;
         #padding-left = 1;
-        padding-right = 2;
-        padding-left = 2;
+        padding-right = 0;
+        padding-left = 0;
 
         module-margin-left = 0;
         module-margin-right = 0;
@@ -68,11 +68,11 @@ in {
         # font-0 = "FiraCode Nerd Font:size=12;2;style=bold";
         font-0 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
         font-1 = "JetbrainsMono Nerd Font:size=9:weight=bold;4";
-        font-2 = "JetbrainsMono Nerd Font Mono:size=20:weight=bold;7";
+        font-2 = "JetbrainsMono Nerd Font Mono:size=16:weight=bold;7";
         font-3 = "JetbrainsMono Nerd Font Mono:size=15:weight=bold;7";
 
-        modules-left = "xworkspaces xwindow";
-        modules-right = "filesystem memory cpu network battery tray date";
+        modules-left = "os xworkspaces xwindow";
+        modules-right = "filesystem memory cpu avaya network battery tray date powermenu";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
@@ -90,11 +90,19 @@ in {
         tray-size = "45%";
       };
 
+      "module/os" = {
+        type = "custom/text";
+        format = "<label>";
+        label = "󰀻";
+        label-font = "3";
+        click-left="exec ${pkgs.rofi}/bin/rofi -show drun -show-icons";
+      };
+
       "module/xworkspaces" = {
         type = "internal/i3";
         format = "<label-state> <label-mode>";
         ws-icon-0 = "1;  "; # terminal
-        ws-icon-1 = "2;  "; # browser
+        ws-icon-1 = "2; 󰖟 "; # browser
         ws-icon-2 = "3; 󰊻 "; # teams
         ws-icon-3 = "4; 󰴢 "; # outlocker
         ws-icon-4 = "5;  "; # idea
@@ -137,7 +145,7 @@ in {
       "module/date" = {
         type = "internal/date";
         interval = 5;
-        date = "%a %b %d %l:%M %p ";
+        date = "%a %b %d %l:%M %p";
         label = "%date%";
         label-padding-x = 0;
         #label-foreground = "${primary}";
@@ -226,13 +234,11 @@ in {
         label-open = " ";
         label-close = "";
         label-separator = "  ";
-
-        menu-0-0 = " Suspend";
-        menu-0-0-exec = "systemctl suspend";
-        menu-0-1 = " Reboot";
-        menu-0-1-exec = "reboot";
-        menu-0-2 = " Shutdown";
-        menu-0-2-exec = "systemctl poweroff";
+        label-font = 3;
+        menu-0-0 = " Reboot";
+        menu-0-0-exec = "/run/current-system/sw/bin/reboot";
+        menu-0-1 = " Shutdown";
+        menu-0-1-exec = "/run/current-system/sw/bin/poweroff";
       };
 
       "module/filesystem" = {
@@ -261,6 +267,16 @@ in {
       "settings" = {
         screenchange-reload = true;
         pseudo-transparency = true;
+      };
+
+      "module/avaya" = {
+        type="custom/script";
+        exec = "~/.local/bin/connected-to-avaya.sh";
+        tail = false;
+        interval = 5;
+        format = "<label>";
+        label = "%output%";
+        label-font = 2;
       };
     };
   };

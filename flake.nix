@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nurpkgs.url = "github:nix-community/NUR";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -43,12 +43,15 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
                 users.${userDetails.userName} = {
                   home = {
                     username = "${userDetails.userName}";
                     homeDirectory = "/home/${userDetails.userName}";
                     # do not change this value
-                    stateVersion = "23.11";
+                    stateVersion = "23.11"; #23.11
                   };
 
                   # Let Home Manager install and manage itself.
@@ -58,7 +61,7 @@
                 users.root = { pkgs, ... }: {
                   home.username = "root";
                   home.homeDirectory = "/root";
-                  home.stateVersion = "23.11";
+                  home.stateVersion = "23.11"; # 23.11
                   programs.home-manager.enable = true;
                   imports = [ ./home/nvim.nix ./home/shell.nix ];
                 };
@@ -87,12 +90,14 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                enableNixpkgsReleaseCheck = false;
                 users.${userDetails.userName} = {
                   home = {
                     username = "${userDetails.userName}";
                     homeDirectory = "/home/${userDetails.userName}";
                     # do not change this value
                     stateVersion = "23.11";
+                    enableNixpkgsReleaseCheck = false;
                   };
 
                   # Let Home Manager install and manage itself.

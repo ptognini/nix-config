@@ -16,7 +16,12 @@
   networking.hostName = "prl-dev";
   
   hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+  hardware.opengl.extraPackages = [ 
+      pkgs.mesa.drivers
+      pkgs.vaapiVdpau
+      pkgs.libvdpau-va-gl
+  ];
+
   hardware.opengl.driSupport = true;
   
   boot.loader.systemd-boot.enable = true;

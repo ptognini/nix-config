@@ -19,11 +19,12 @@ in
 
       font = {
         normal.family = "JetbrainsMono Nerd Font";
-        normal.style = if isLinux then "Bold" else "Regular";
-        bold.style = if isLinux then "ExtraBold" else "Bold";
-        italic.style = if isLinux then "Bold Italic" else "Italic";
-        bold_italic.stype = if isLinux then "ExtraBold Italic" else "Bold Italic";
-        size = if isLinux then 9 else 12; 
+        normal.style = if isLinux then "Regular" else "Regular";
+
+        bold.style = if isLinux then "Bold" else "Bold";
+        italic.style = if isLinux then "Italic" else "Italic";
+        bold_italic.stype = if isLinux then "Bold Italic" else "Bold Italic";
+        size = if isLinux then 10 else 12; 
       };
 
       shell = { program = "${pkgs.fish}/bin/fish"; };

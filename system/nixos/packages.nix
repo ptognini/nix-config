@@ -38,5 +38,6 @@
     glxinfo
     minikube
     openssl
+    nix-prefetch-github
   ];
 }

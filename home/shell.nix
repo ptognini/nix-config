@@ -84,7 +84,7 @@
           format = "[  $symbol$branch(:$remote_branch)]($style)";
         };
         azure = {
-          disabled = false;
+          disabled = true;
           #style = "fg:#ffffff bg:#0078d4";
           style = "fg:#0078d4";
           format = "[  ($subscription)]($style)";
@@ -94,7 +94,7 @@
           style = "fg:#2e6ce6";
           #format = "\\[[󱃾 :($cluster)]($style)\\]";
           format = "[ 󱃾 ($cluster)]($style)";
-          disabled = false;
+          disabled = true;
         };
         docker_context = {
           disabled = false;

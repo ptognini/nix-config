@@ -25,9 +25,9 @@ in
       window.border = 1;
       window.titlebar = false;
       gaps = {
-        inner = 15;
+        inner = 10;
         outer = 5;
-        top = 25;
+        top = 20;
         left = 1;
         right = 1;
         bottom = 1;

@@ -1,8 +1,15 @@
 { pkgs, ... }:
+let
+  chromiumWideVine = pkgs.chromium.overrideAttrs { 
+    enableWideVine = true; 
+    enableVaapi = true;
+  };
 
-{
+
+in {
   programs.chromium = {
 	  enable = true;
+	  package = chromiumWideVine; #pkgs.chromium;
 	  dictionaries = [ 
 		  pkgs.hunspellDictsChromium.en_US
 	  ];
