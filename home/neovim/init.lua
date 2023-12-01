@@ -58,6 +58,7 @@ vim.o.guifont = "JetBrainsMono Nerd Font:style=Bold:h10"
 --	})
 --end
 require("lazy").setup({
+	{"nvim-lua/plenary.nvim"},
 	ConfigureTheme(),
 	Telescope(),
 	ConfigureMiniStarter(),
@@ -71,6 +72,7 @@ require("lazy").setup({
 	Statusline(),
 	Notify(),
 	{ "MunifTanjim/nui.nvim", lazy = true },
+	{ "christoomey/vim-tmux-navigator", lazy = false},
 	Noice(),
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	"folke/which-key.nvim",
