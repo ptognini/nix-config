@@ -68,7 +68,7 @@ function ConfigureMiniStarter()
 						.. " plugins in "
 						.. ms
 						.. "ms"
-					pcall(starter.refresh)
+					-- pcall(starter.refresh)
 				end,
 			})
 		end,

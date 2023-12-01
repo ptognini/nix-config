@@ -1,4 +1,4 @@
-# TODO 
+# TODO - 2023
 - [ ] fix git/seahorse git credentials/auto login
 - [x] get SSH to work correctly with github and bb
 - [ ] install vscode server
@@ -22,4 +22,4 @@
 - [ ] fix IBL plugin in NVIM 
 - [ ] fix chromium widevine support
 - [ ] k9s rose-pine color scheme
-
+- [ ] fix auto complete in nvim/go

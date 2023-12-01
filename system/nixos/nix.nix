@@ -8,7 +8,7 @@
 }:
 {
   nix = {
-	  package = pkgs.nixFlakes;
+ package = pkgs.nixFlakes;
 	  optimise.automatic = true;
 	  gc = {
 	    automatic = true;
@@ -22,6 +22,4 @@
   };
 
   nixpkgs.config.allowUnfree = true;
- 
- 
 }

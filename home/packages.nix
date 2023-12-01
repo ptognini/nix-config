@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-with pkgs;
-let
+{pkgs, ...}:
+with pkgs; let
   default-python = python3.withPackages (python-packages:
     with python-packages; [
       pip
@@ -14,7 +12,6 @@ let
     ]);
 in {
   home.packages = with pkgs; [
-
     # TERMINAL
     any-nix-shell
     neofetch
@@ -37,9 +34,13 @@ in {
     gdb
     rustup
     lua-language-server
-
+    nil
+    alejandra # nix code formatter
+    shellcheck
     lazygit
-
+    stylua
+    nodePackages.eslint
+    codespell
     # kafka
     avro-tools
     kcat
@@ -74,5 +75,4 @@ in {
     libreoffice
     _1password-gui
   ];
-
 }
