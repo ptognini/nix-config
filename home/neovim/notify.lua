@@ -22,6 +22,7 @@ function Notify()
 				on_open = function(win)
 					vim.api.nvim_win_set_config(win, { zindex = 100 })
 				end,
+				background_colour = "#000000",
 			},
 			init = function()
 				-- when noice is not enabled, install notify on VeryLazy

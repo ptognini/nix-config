@@ -1,5 +1,11 @@
-{ pkgs, desktopDetails, config, lib, ... }:
-let rose-pine-wallpapers = pkgs.callPackage ./wallpapers.nix { };
+{
+  pkgs,
+  desktopDetails,
+  config,
+  lib,
+  ...
+}: let
+  rose-pine-wallpapers = pkgs.callPackage ./wallpapers.nix {};
 in {
   xsession.windowManager.i3 = {
     enable = true;
@@ -7,7 +13,7 @@ in {
 
     config = rec {
       modifier = "Mod1";
-      bars = [ ];
+      bars = [];
       #https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/lib/options.nix
       colors = {
         focused = {
@@ -31,11 +37,10 @@ in {
       };
       gaps.smartBorders = "off";
       defaultWorkspace = "workspace number 1";
-      floating.criteria =
-        [ { class = "Pavucontrol"; } { class = "1Password"; } ];
+      floating.criteria = [{class = "Pavucontrol";} {class = "1Password";}];
       floating.titlebar = false;
       fonts = {
-        names = [ "RobotoMono" ];
+        names = ["RobotoMono"];
         style = "Bold";
         size = 9.0;
       };
@@ -45,10 +50,8 @@ in {
         "XF86AudioRaiseVolume" = "exec amixer set Master 4%+";
         "XF86MonBrightnessDown" = "exec brightnessctl set 4%-";
         "XF86MonBrightnessUp" = "exec brightnessctl set 4%+";
-        "${modifier}+Return" =
-          " exec ${pkgs.alacritty}/bin/alacritty msg create-window || ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+d" =
-          "exec ${pkgs.rofi}/bin/rofi -dpi 192 -show drun -show-icons";
+        "${modifier}+Return" = " exec ${pkgs.alacritty}/bin/alacritty msg create-window || ${pkgs.alacritty}/bin/alacritty";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -dpi 192 -show drun -show-icons";
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
         "${modifier}+k" = "focus up";
@@ -57,38 +60,50 @@ in {
         "${modifier}+Shift+4" = "exec flameshot gui -c";
       };
       assigns = {
-        "1" = [{
-          class = "Alacritty";
-          instance = "default-tmux";
-        }];
+        "1" = [
+          {
+            class = "Alacritty";
+            instance = "default-tmux";
+          }
+        ];
         "2" = [
-          { class = "^firefox$"; }
+          {class = "^firefox$";}
           {
             instance = "chromium-browser";
             class = "Chromium-browser";
           }
         ];
-        "3" = [{
-          instance = "teams.microsoft.com";
-          class = "Chromium-browser";
-        }];
-        "4" = [{
-          instance = "outlook.office.com";
-          class = "Chromium-browser";
-        }];
-        "5" = [ { class = "jetbrains-goland"; } { class = "jetbrains-idea"; } ];
-        "6" = [{
-          instance = "avaya.rocket.chat";
-          class = "Chromium-browser";
-        }];
-        "8" = [{
-          instance = "music.youtube.com";
-          class = "Chromium-browser";
-        }];
-        "9" = [{
-          instance = "chat.openai.com";
-          class = "Chromium-browser";
-        }];
+        "3" = [
+          {
+            instance = "teams.microsoft.com";
+            class = "Chromium-browser";
+          }
+        ];
+        "4" = [
+          {
+            instance = "outlook.office.com";
+            class = "Chromium-browser";
+          }
+        ];
+        "5" = [{class = "jetbrains-goland";} {class = "jetbrains-idea";}];
+        "6" = [
+          {
+            instance = "avaya.rocket.chat";
+            class = "Chromium-browser";
+          }
+        ];
+        "8" = [
+          {
+            instance = "music.youtube.com";
+            class = "Chromium-browser";
+          }
+        ];
+        "9" = [
+          {
+            instance = "chat.openai.com";
+            class = "Chromium-browser";
+          }
+        ];
         "10" = [
           {
             instance = "x.com";
@@ -118,14 +133,12 @@ in {
           notification = false;
         }
         {
-          command =
-            "${pkgs.feh}/bin/feh --randomize --bg-fill ${rose-pine-wallpapers}";
+          command = "${pkgs.feh}/bin/feh --randomize --bg-fill ${rose-pine-wallpapers}";
           always = true;
           notification = false;
         }
         {
-          command =
-            "${pkgs.alacritty}/bin/alacritty --class Alacritty,default-tmux -e 'tmux' new-session -s default -A";
+          command = "${pkgs.alacritty}/bin/alacritty --class Alacritty,default-tmux -e 'tmux' new-session -s default -A";
           always = false;
           notification = true;
         }
@@ -137,6 +150,4 @@ in {
       ];
     };
   };
-
 }
-

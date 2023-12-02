@@ -84,6 +84,7 @@ function Treesitter()
 					"gosum",
 					"nix",
 					"java",
+					"yaml",
 				},
 				incremental_selection = {
 					enable = true,

@@ -44,6 +44,10 @@ in {
     # kafka
     avro-tools
     kcat
+    delve
+    jdt-language-server
+    markdownlint-cli
+    shfmt
 
     # cloud
     kubectl

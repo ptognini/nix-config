@@ -101,6 +101,12 @@
       ${builtins.readFile neovim/notify.lua}
       ${builtins.readFile neovim/noice.lua}
       ${builtins.readFile neovim/telescope.lua}
+      ${builtins.readFile neovim/indentblankline.lua}
+      ${builtins.readFile neovim/navic.lua}
+      ${builtins.readFile neovim/symbolsoutline.lua}
+      ${builtins.readFile neovim/dap.lua}
+      ${builtins.readFile neovim/conform.lua}
+      ${builtins.readFile neovim/none-ls.lua}
       ${builtins.readFile neovim/init.lua}
     '';
     #    extraConfig = ''
