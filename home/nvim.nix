@@ -107,6 +107,7 @@
       ${builtins.readFile neovim/dap.lua}
       ${builtins.readFile neovim/conform.lua}
       ${builtins.readFile neovim/none-ls.lua}
+      ${builtins.readFile neovim/oil.lua}
       ${builtins.readFile neovim/init.lua}
     '';
     #    extraConfig = ''

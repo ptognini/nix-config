@@ -30,6 +30,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
 
+vim.opt.fillchars = { eob = " " }
+
 vim.o.listchars = "trail:-,nbsp:+,tab:▏ "
 vim.opt.list = true -- Enable displaying of 'listchars'
 -- those pesky avro schema files...
@@ -75,6 +77,7 @@ require("lazy").setup({
 	Completion(),
 	Illuminate(),
 	IndentBlankLine(),
+	Oil(),
 	Trouble(),
 	Persistence(),
 	Statusline(),
