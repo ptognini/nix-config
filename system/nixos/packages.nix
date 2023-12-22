@@ -5,8 +5,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   # available to root and ${userDetails.userName}
   environment.systemPackages = with pkgs; [
     lf
@@ -29,7 +28,7 @@
     ripgrep
     entr
     lolcat
-    cowsay 
+    cowsay
     nixd
     fd
     lua-language-server
@@ -39,5 +38,6 @@
     minikube
     openssl
     nix-prefetch-github
+    redis
   ];
 }

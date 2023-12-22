@@ -109,6 +109,7 @@
       ${builtins.readFile neovim/none-ls.lua}
       ${builtins.readFile neovim/oil.lua}
       ${builtins.readFile neovim/init.lua}
+      ${builtins.readFile neovim/setup/mappings.lua}
     '';
     #    extraConfig = ''
     #      lua << EOF

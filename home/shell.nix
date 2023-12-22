@@ -1,9 +1,11 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   home.shellAliases = {
     v = "nvim";
-    fz =
-      "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+    fz = "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
     k = "kubectl";
     dcu = "docker compose up";
   };
@@ -18,27 +20,27 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        				function fish_greeting
-        				  fortune|lolcat
-        				end
+        function fish_greeting
+          fortune|lolcat
+        end
 
-                function cd --description 'Change directory smartly with tmux sessions'
-                    if set -q TMUX && [ (count $argv) -eq 0 ]
-                        set -l tmux_root_dir (tmux show-environment TMUX_SESSION_ROOT_DIR 2>/dev/null | sed -n 's/^TMUX_SESSION_ROOT_DIR=//p')
-                        if test -n "$tmux_root_dir" -a -d "$tmux_root_dir"
-                            builtin cd $tmux_root_dir
-                            # echo "Changed to TMUX session root directory: $tmux_root_dir"
-                        else
-                            # echo "TMUX_SESSION_ROOT_DIR is not set or is not a valid directory."
-                            builtin cd
-                        end
+            function cd --description 'Change directory smartly with tmux sessions'
+                if set -q TMUX && [ (count $argv) -eq 0 ]
+                    set -l tmux_root_dir (tmux show-environment TMUX_SESSION_ROOT_DIR 2>/dev/null | sed -n 's/^TMUX_SESSION_ROOT_DIR=//p')
+                    if test -n "$tmux_root_dir" -a -d "$tmux_root_dir"
+                        builtin cd $tmux_root_dir
+                        # echo "Changed to TMUX session root directory: $tmux_root_dir"
                     else
-                        # If arguments are provided or not in a tmux session, use regular cd
-                        builtin cd $argv
-                        # echo "Changed to directory: $argv"
+                        # echo "TMUX_SESSION_ROOT_DIR is not set or is not a valid directory."
+                        builtin cd
                     end
+                else
+                    # If arguments are provided or not in a tmux session, use regular cd
+                    builtin cd $argv
+                    # echo "Changed to directory: $argv"
                 end
-        			'';
+            end
+      '';
     };
 
     bat = {
@@ -54,7 +56,7 @@
     eza = {
       enable = true;
       enableAliases = true;
-      extraOptions = [ "--group-directories-first" ];
+      extraOptions = ["--group-directories-first"];
       icons = true;
       git = false;
     };
@@ -70,7 +72,7 @@
         format = ''
           [](bold cyan) $directory$cmd_duration$all$kubernetes$azure$docker_context$time
           $character'';
-        directory = { home_symbol = " "; };
+        directory = {home_symbol = " ";};
         golang = {
           #style = "bg:#79d4fd fg:#000000";
           style = "fg:#79d4fd";
@@ -101,7 +103,7 @@
           #style = "fg:#1d63ed";
           format = "[ 󰡨 ($context) ]($style)";
         };
-        gcloud = { disabled = true; };
+        gcloud = {disabled = true;};
         hostname = {
           ssh_only = true;
           format = "<[$hostname]($style)";
@@ -109,7 +111,7 @@
           style = "bold dimmed fg:white";
           disabled = true;
         };
-        line_break = { disabled = true; };
+        line_break = {disabled = true;};
         username = {
           style_user = "bold dimmed fg:blue";
           show_always = false;
@@ -123,6 +125,10 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
+
+  home.sessionPath = [
+    "$HOME/.local/share/go/bin"
+  ];
 
   home.packages = with pkgs; [
     lolcat

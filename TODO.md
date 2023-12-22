@@ -16,19 +16,21 @@
 - [x] clean up mac os configuration
 - [ ] configure image preview uezburg with lf
 - [ ] adjust all file associations/xdg mime preferences
-- [ ] configure font preview -> https://github.com/sdushantha/fontpreview
+- [ ] configure font preview -> "https://github.com/sdushantha/fontpreview"
 - [x] configure thunar actions
 - [x] fix .desktop/rofi app icons
 - [ ] add a frame around rofi
-- [ ] fix IBL plugin in NVIM
+- [x] fix IBL plugin in NVIM
 - [ ] folds in nvim
 - [ ] fix telescope in MacOS nvim
 - [ ] DAP in nvim
 - [ ] file name in nvim
-- [ ] navic in lualine
+- [x] navic in lualine
 - [ ] git on top of the screen
-- [ ] bash language server
+- [X] bash language server
 - [ ] markdown language server
 - [ ] fix chromium widevine support
 - [ ] k9s rose-pine color scheme
 - [ ] fix auto complete in nvim/go
+- [X] oil.nvim
+- [ ] fish using vim motionsv

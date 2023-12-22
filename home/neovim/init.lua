@@ -1,7 +1,14 @@
 vim.g.mapleader = " "
 
+vim.g.netrw_banner = 0 -- gets rid of the annoying banner for netrw
+vim.g.netrw_browse_split = 4 -- open in prior window
+vim.g.netrw_altv = 1 -- change from left splitting to right splitting
+vim.g.netrw_liststyle = 3 -- tree style view in netrw
+vim.opt.syntax = "ON"
 vim.opt.termguicolors = true
 
+vim.opt.ignorecase = true -- enable case insensitive searching
+vim.opt.smartcase = true -- all searches are case insensitive unless there's a capital lette
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -11,7 +18,8 @@ vim.opt.breakindent = true
 vim.opt.copyindent = true
 vim.opt.cursorline = true
 vim.opt.preserveindent = true
-
+vim.opt.fileencoding = "utf-8"
+vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.showmode = false
@@ -25,7 +33,12 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
-vim.opt.signcolumn = "yes"
+vim.opt.title = false -- show title
+vim.cmd("set path+=**") -- search current directory recursively
+
+vim.opt.showtabline = 2 -- always show the tab line
+vim.opt.laststatus = 2 -- always show statusline
+vim.opt.signcolumn = "auto"
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
@@ -68,6 +81,23 @@ require("lazy").setup({
 			vim.g.startuptime_tries = 10
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			alacritty = {
+				enabled = true,
+				font = "14", -- font size
+			},
+			tmux = {
+				enabled = false,
+			},
+		},
+	},
 	ConfigureTheme(),
 	Telescope(),
 	ConfigureMiniStarter(),
@@ -85,7 +115,7 @@ require("lazy").setup({
 	Navic(),
 	SymbolsOutline(),
 	Dap(),
-	Nonels(),
+	-- Nonels(),
 	{ "MunifTanjim/nui.nvim", lazy = true },
 	{
 		"norcalli/nvim-colorizer.lua",

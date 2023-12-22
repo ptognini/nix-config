@@ -16,4 +16,15 @@ vim.keymap.set("n", "<Leader>fr", telescope_builtin.resume, silent_opts)
 vim.keymap.set("n", "<Leader>fj", telescope_builtin.jumplist, silent_opts)
 vim.keymap.set("n", "<Leader>fl", telescope_builtin.loclist, silent_opts)
 vim.keymap.set("n", "<Leader>fs", telescope_builtin.spell_suggest, silent_opts)
-vim.keymap.set("n", "<Leader>E", ":Explore<CR>", silent_opts )
+vim.keymap.set("n", "<Leader>e", ":25Lex <CR>", silent_opts)
+vim.keymap.set("n", "<Leader>o", ":50vsplit|Oil <CR>", silent_opts)
+
+-- buffer navigation
+vim.keymap.set("n", "<Tab>", ":bnext <CR>", silent_opts) -- Tab goes to next buffer
+vim.keymap.set("n", "<S-Tab>", ":bprevious <CR>", silent_opts) -- Shift+Tab goes to previous buffer
+vim.keymap.set("n", "<leader>bd", ":bd! <CR>", silent_opts) -- Space+d deletes current buffer
+
+-- adjust split sizes easier
+vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", silent_opts) -- Control+Left resizes vertical split +
+
+vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", silent_opts) -- Control+Right resizes vertical split -
