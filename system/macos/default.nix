@@ -70,7 +70,6 @@
     caskArgs.no_quarantine = true;
     casks = [
       "stats"
-      "raycast"
       "rocket-chat"
       "google-chrome"
       "1password"
