@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   programs.gpg.enable = true;
   programs.gpg.homedir = "${config.xdg.dataHome}/gnupg";
   programs.gpg.mutableKeys = true;
@@ -14,8 +17,9 @@
     defaultCacheTtlSsh = 60 * 60 * 8;
     enableSshSupport = true;
     enableScDaemon = false; #no smart card
+    pinentryFlavor = "tty";
     sshKeys = [
-       "7E94299ADBECE24CBF21A28F5A6877BAE2EADC11"
+      "7E94299ADBECE24CBF21A28F5A6877BAE2EADC11"
     ];
   };
 }
