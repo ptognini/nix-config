@@ -36,10 +36,11 @@ vim.opt.undofile = true
 vim.opt.title = false -- show title
 vim.cmd("set path+=**") -- search current directory recursively
 
-vim.opt.showtabline = 2 -- always show the tab line
+vim.opt.showtabline = 0 -- always show the tab line
 vim.opt.laststatus = 2 -- always show statusline
 vim.opt.signcolumn = "auto"
 vim.opt.updatetime = 50
+vim.opt.timeoutlen = 300
 
 vim.opt.colorcolumn = "120"
 
@@ -73,6 +74,10 @@ vim.o.guifont = "JetBrainsMono Nerd Font:style=Bold:h10"
 --	})
 --end
 require("lazy").setup({
+	-- Git related plugins
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
+
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"dstein64/vim-startuptime",

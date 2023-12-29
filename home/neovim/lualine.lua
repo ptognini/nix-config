@@ -88,14 +88,6 @@ function Statusline()
 				vim.o.laststatus = vim.g.lualine_laststatus
 
 				return {
-					--``	tabline = {
-					--``		lualine_a = {},
-					--``		lualine_b = {},
-					--``		lualine_c = {},
-					--``		lualine_x = {},
-					--``		lualine_y = {},
-					--``		lualine_z = {},
-					--``	},
 					winbar = {
 						lualine_a = { "navic" },
 						lualine_b = {},

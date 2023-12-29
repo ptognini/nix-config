@@ -39,5 +39,7 @@
     openssl
     nix-prefetch-github
     redis
+    onefetch
+    speedtest-cli
   ];
 }

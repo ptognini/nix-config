@@ -8,6 +8,7 @@
     fz = "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
     k = "kubectl";
     dcu = "docker compose up";
+    dcub = "docker compose up --build .";
   };
 
   programs = {
@@ -20,6 +21,7 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
+        fish_vi_key_bindings
         function fish_greeting
           fortune|lolcat
         end
@@ -77,9 +79,13 @@
           #style = "bg:#79d4fd fg:#000000";
           style = "fg:#79d4fd";
           format = "[$symbol($version)]($style)";
-          symbol = " ";
+          symbol = " ";
+        };
+        git_status = {
+          disabled = true;
         };
         git_branch = {
+          disabled = true;
           symbol = " ";
           #style = "bg:#f34c28 fg:#413932";
           style = "fg:#f34c28";
@@ -90,6 +96,9 @@
           #style = "fg:#ffffff bg:#0078d4";
           style = "fg:#0078d4";
           format = "[  ($subscription)]($style)";
+        };
+        java = {
+          format = "[ ($version)]($style)";
         };
         kubernetes = {
           #style = "bg:#303030 fg:#ffffff";

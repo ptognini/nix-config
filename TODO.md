@@ -31,6 +31,6 @@
 - [ ] markdown language server
 - [ ] fix chromium widevine support
 - [ ] k9s rose-pine color scheme
-- [ ] fix auto complete in nvim/go
+- [x] complete in nvim/go
 - [X] oil.nvim
 - [ ] fish using vim motionsv

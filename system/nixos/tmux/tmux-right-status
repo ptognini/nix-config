@@ -34,5 +34,9 @@ function get_project_output(){
   echo $output
 }
 
-echo $(get_k8s_output) $(get_az_output) $(get_project_output)
+function get_git_output(){
+  echo $(tmux-git-status)
+}
+
+echo $(get_git_output) $(get_k8s_output) $(get_az_output) $(get_project_output)
 #vim: set filetype=sh:

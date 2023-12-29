@@ -1,6 +1,10 @@
 function Lsp()
 	return {
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "j-hui/fidget.nvim", opts = {} },
+			"folke/neodev.nvim",
+		},
 		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		opts = {
 			diagnostics = {

@@ -1,20 +1,25 @@
-{ inputs, pkgs, config, ... }:
-let
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (pkgs) runCommandNoCC writeText;
   inherit (pkgs.lib.strings) concatStrings;
   inherit (pkgs.lib.attrsets) mapAttrsToList;
 
-  firefox-ui-fix = pkgs.callPackage ./firefox-ui-fix.nix { };
+  firefox-ui-fix = pkgs.callPackage ./firefox-ui-fix.nix {};
 
   settings = writeText "user.js" (concatStrings (mapAttrsToList (name: value: ''
-    user_pref("${name}", ${builtins.toJSON value});
-  '') config.programs.firefox.profiles.aragao.settings));
+      user_pref("${name}", ${builtins.toJSON value});
+    '')
+    config.programs.firefox.profiles.aragao.settings));
 
-  settings-file = runCommandNoCC "firefox-settings" { } ''
+  settings-file = runCommandNoCC "firefox-settings" {} ''
     cat '${firefox-ui-fix}/user.js' '${settings}' > $out
   '';
 in {
-  # heavily inspired by 
+  # heavily inspired by
   # https://github.com/TLATER/dotfiles/blob/7ce77190696375aab3543f7365d298729a548df5/home-modules/firefox-webapp.nix
 
   xdg.configFile."tridactyl/tridactylrc".text = ''
@@ -24,10 +29,9 @@ in {
     source = "${firefox-ui-fix}/icons";
   };
 
-  home.file.".mozilla/firefox/${config.programs.firefox.profiles.aragao.path}/user.js" =
-    {
-      source = settings-file;
-    };
+  home.file.".mozilla/firefox/${config.programs.firefox.profiles.aragao.path}/user.js" = {
+    source = settings-file;
+  };
 
   programs.firefox = {
     enable = true;
@@ -38,7 +42,7 @@ in {
       };
     };
 
-    policies = { DefaultDownloadDirectory = "\${home}/downloads"; };
+    policies = {DefaultDownloadDirectory = "\${home}/downloads";};
 
     profiles."aragao" = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -84,10 +88,8 @@ in {
         "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" =
           false;
         "browser.newtabpage.activity-stream.feeds.snippets" = false;
-        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" =
-          "";
-        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" =
-          "";
+        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
+        "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
         "browser.newtabpage.activity-stream.section.highlights.includePocket" =
           false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
@@ -114,22 +116,21 @@ in {
     };
   };
 
-#  programs.firefox.webapps.teams-firefox = {
-#    url = "https://teams.microsoft.com";
-#    id = 2;
-#    name = "Teams - Firefox";
-#    icon = "teams";
-#    extraSettings = config.programs.firefox.profiles."aragao".settings;
-#    categories = [ "Network" "InstantMessaging" ];
-#  };
-#
-#  programs.firefox.webapps.teams-outlook = {
-#    url = "https://outlook.office.com";
-#    id = 3;
-#    name = "Outlook - Firefox";
-#    icon = "ms-outlook";
-#    extraSettings = config.programs.firefox.profiles."aragao".settings;
-#    categories = [ "X-Internet" ];
-#  };
-
+  #  programs.firefox.webapps.teams-firefox = {
+  #    url = "https://teams.microsoft.com";
+  #    id = 2;
+  #    name = "Teams - Firefox";
+  #    icon = "teams";
+  #    extraSettings = config.programs.firefox.profiles."aragao".settings;
+  #    categories = [ "Network" "InstantMessaging" ];
+  #  };
+  #
+  #  programs.firefox.webapps.teams-outlook = {
+  #    url = "https://outlook.office.com";
+  #    id = 3;
+  #    name = "Outlook - Firefox";
+  #    icon = "ms-outlook";
+  #    extraSettings = config.programs.firefox.profiles."aragao".settings;
+  #    categories = [ "X-Internet" ];
+  #  };
 }
