@@ -9,7 +9,7 @@
 
     extensions = (with pkgs.vscode-extensions; [
       brettm12345.nixfmt-vscode
-      vscodevim.vim
+      #vscodevim.vim
       yzhang.markdown-all-in-one
       ms-vscode.makefile-tools
       golang.go
@@ -18,6 +18,7 @@
       pkief.material-icon-theme
       humao.rest-client
       ms-azuretools.vscode-docker
+      mhutchie.git-graph
     ]); 
 
     userSettings = {
@@ -29,7 +30,7 @@
       terminal.integrated.defaultProfile.linux = "${pkgs.fish}/bin/fish";
 
       telemetry.telemetryLevel = "off";
-      
+
       editor = {
         fontFamily =
           "'JetbrainsMono Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'";
