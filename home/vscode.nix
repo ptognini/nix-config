@@ -28,19 +28,36 @@
       terminal.integrated.shell.linux = "${pkgs.fish}/bin/fish";
       terminal.integrated.defaultProfile.linux = "${pkgs.fish}/bin/fish";
 
+      telemetry.telemetryLevel = "off";
+      
       editor = {
         fontFamily =
           "'JetbrainsMono Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'";
         fontLigatures = true;
         inlineSuggest.enabled = true;
         bracketPairColorization.enabled = true;
+        minimap.enabled = false;
+        stickyScroll.enabled = true;
+        stickyScroll.defaultModel = "indentationModel";
+        stickyScroll.maxLineCount = 6;
       };
 
       workbench = {
         iconTheme = "material-icon-theme";
-        colorTheme = "Rosé Pine"; # Material Theme Ocean High Contrast
+        colorTheme = "Visual Studio Dark - C++"; 
+        activityBar.location = "top";
+        sideBar.location = "right";
       };
 
+      terminal = {
+        integrated.scrollback = 100000;
+        integrated.stickyScroll.enabled = true
+      };
+
+      gopls = {
+        analyses = "{"fieldalignment": true, "unusedvariable":false}";
+        ui.semanticTokens = true
+      }
     };
   };
 }
