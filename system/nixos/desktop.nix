@@ -39,7 +39,7 @@
       };
 
       xkb.layout = "us";
-      xkb.Options = "caps:escape";
+      xkb.options = "caps:escape";
 
       libinput = {
         enable = true;
