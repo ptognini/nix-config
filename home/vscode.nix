@@ -52,12 +52,12 @@
 
       terminal = {
         integrated.scrollback = 100000;
-        integrated.stickyScroll.enabled = true
+        integrated.stickyScroll.enabled = true;
       };
 
       gopls = {
         analyses = "{"fieldalignment": true, "unusedvariable":false}";
-        ui.semanticTokens = true
+        ui.semanticTokens = true;
       }
     };
   };
