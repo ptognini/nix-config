@@ -58,7 +58,7 @@
       gopls = {
         analyses = "{"fieldalignment": true, "unusedvariable":false}";
         ui.semanticTokens = true;
-      }
+      };
     };
   };
 }
