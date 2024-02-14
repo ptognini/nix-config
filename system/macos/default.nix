@@ -16,8 +16,8 @@
   nixpkgs.config.allowUnfree = true;
 
   ## USERS ##########################
-  users.users.aragao = {
-    home = "/Users/aragao";
+  users.users.ptognini = {
+    home = "/Users/ptognini";
     shell = pkgs.fish;
   };
 

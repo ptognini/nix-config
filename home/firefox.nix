@@ -13,7 +13,7 @@
   settings = writeText "user.js" (concatStrings (mapAttrsToList (name: value: ''
       user_pref("${name}", ${builtins.toJSON value});
     '')
-    config.programs.firefox.profiles.aragao.settings));
+    config.programs.firefox.profiles.ptognini.settings));
 
   settings-file = runCommandNoCC "firefox-settings" {} ''
     cat '${firefox-ui-fix}/user.js' '${settings}' > $out
@@ -25,11 +25,11 @@ in {
   xdg.configFile."tridactyl/tridactylrc".text = ''
   '';
 
-  home.file.".mozilla/firefox/aragao/chrome/icons" = {
+  home.file.".mozilla/firefox/ptognini/chrome/icons" = {
     source = "${firefox-ui-fix}/icons";
   };
 
-  home.file.".mozilla/firefox/${config.programs.firefox.profiles.aragao.path}/user.js" = {
+  home.file.".mozilla/firefox/${config.programs.firefox.profiles.ptognini.path}/user.js" = {
     source = settings-file;
   };
 
@@ -44,7 +44,7 @@ in {
 
     policies = {DefaultDownloadDirectory = "\${home}/downloads";};
 
-    profiles."aragao" = {
+    profiles."ptognini" = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         clearurls
         decentraleyes
@@ -121,7 +121,7 @@ in {
   #    id = 2;
   #    name = "Teams - Firefox";
   #    icon = "teams";
-  #    extraSettings = config.programs.firefox.profiles."aragao".settings;
+  #    extraSettings = config.programs.firefox.profiles."ptognini".settings;
   #    categories = [ "Network" "InstantMessaging" ];
   #  };
   #
@@ -130,7 +130,7 @@ in {
   #    id = 3;
   #    name = "Outlook - Firefox";
   #    icon = "ms-outlook";
-  #    extraSettings = config.programs.firefox.profiles."aragao".settings;
+  #    extraSettings = config.programs.firefox.profiles."ptognini".settings;
   #    categories = [ "X-Internet" ];
   #  };
 }

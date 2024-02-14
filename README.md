@@ -47,7 +47,7 @@ possible. I recognize this can be annoying as every change require a system rebu
 2. Using UTM or Parallels, create a VM using the downloaded iso
 3. Dpi is set to 192, so don't forget to set retina mode
 3. > sudo -i
-4. > curl -sS https://raw.githubusercontent.com/andreaugustoaragao/nix-config/main/install/nixos.sh|sh
+4. > curl -sS https://raw.githubusercontent.com/ptognini/nix-config/main/install/nixos.sh|sh
 5. answer a few questions throughout the way (destination device, login name, full Name and the root password)
 6. > reboot
 7. when rebooting, the system will automatically login as the user entered during the install step. Don't forget to set a password

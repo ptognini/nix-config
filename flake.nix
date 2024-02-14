@@ -134,10 +134,10 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
 
-                users.aragao = {
+                users.ptognini = {
                   home = {
-                    username = "aragao";
-                    homeDirectory = "/Users/aragao";
+                    username = "ptognini";
+                    homeDirectory = "/Users/ptognini";
                     # do not change this value
                     stateVersion = "23.11";
                   };

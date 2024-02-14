@@ -54,9 +54,9 @@ nix-env -iA nixos.nixFlakes
 
 git clone https://github.com/ptognini/nix-config
 cd nix-config
-echo "Please enter login (eg.: aragao): "
+echo "Please enter login (eg.: ptognini): "
 read userName < /dev/tty
-echo "Please enter full name (eg.: Andre Aragao): "
+echo "Please enter full name (eg.: Pier Tognini): "
 read fullName < /dev/tty
 
 while true; do
@@ -67,8 +67,8 @@ while true; do
         * ) echo "Please answer y or n.";;
     esac
 done
-oldUserName="aragao"
-oldFullName="Andre Aragao"
+oldUserName="ptognini"
+oldFullName="Pier Tognini"
 sed -i "s/$oldUserName/$userName/g" flake.nix
 sed -i "s/$oldFullName/$fullName/g" flake.nix
 

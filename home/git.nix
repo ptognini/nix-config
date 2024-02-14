@@ -24,8 +24,8 @@ in {
         condition="gitdir=${config.home.homeDirectory}/projects/personal/";
         contents={
           user = {
-              name = "andreaugustoaragao";
-              email = "andrearag@gmail.com";
+              name = "ptognini";
+              email = "ptognini@gmail.com";
           };
         };
       }
@@ -33,8 +33,8 @@ in {
         condition="gitdir=${config.home.homeDirectory}/projects/work/";
         contents = {
           user = {
-            name = "aragao";
-            email = "aragao@avaya.com";
+            name = "ptognini";
+            email = "ptognini@avaya.com";
           };
         };
       }
