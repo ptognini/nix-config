@@ -4,8 +4,6 @@ with lib;
   config = {
     home.packages = with pkgs; [
       go
-      dep2nix
-      go2nix
       # editor support
       go-tools # honnef.co/go/tools/...@latest
       gotools # golang.org/x/tools
