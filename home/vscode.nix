@@ -56,7 +56,10 @@
       };
       
       gopls = {
-        analyses = "{"fieldalignment": true, "unusedvariable":false}";
+        analyses = {
+          fieldalignment = true; 
+          unusedvariable = false;
+        };
         ui.semanticTokens = true;
       };
     };
