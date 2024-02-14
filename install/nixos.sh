@@ -52,7 +52,7 @@ swapon "/dev/${device}2"
 nix-env -iA nixos.git
 nix-env -iA nixos.nixFlakes
 
-git clone https://github.com/andreaugustoaragao/nix-config
+git clone https://github.com/ptognini/nix-config
 cd nix-config
 echo "Please enter login (eg.: aragao): "
 read userName < /dev/tty
