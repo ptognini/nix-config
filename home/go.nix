@@ -8,7 +8,6 @@ with lib;
       go-tools # honnef.co/go/tools/...@latest
       gotools # golang.org/x/tools
       golint # golang.org/x/lint
-      gocode # github.com/mdempsky/gocode
       gocode-gomod # github.com/stamblerre/gocode
       gotests # github.com/cweill/gotests
       impl # github.com/josharian/impl
