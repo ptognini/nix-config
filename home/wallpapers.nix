@@ -5,7 +5,7 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchgit {
     url = "https://github.com/rose-pine/wallpapers";
     #rev = "main";  # Specify the commit, tag, or branch you want to download.
-    sha256 = "1qp/8ACQFuw8nOiO1N08o7s+zsQeZPWopZvG/Ox50ws=";
+    sha256 = "1qp/8ACQFvw8nOiO1N08o7s+zsQeZPWopZvG/Ox50ws=";
   };
 
   installPhase = ''
