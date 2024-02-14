@@ -24,10 +24,15 @@
     userSettings = {
       update.mode = "none";
       window.zoomLevel = 0;
-      terminal.integrated.fontFamily = "JetBrainsMono Nerd Font";
-      terminal.integrated.fontSize = 14;
-      terminal.integrated.shell.linux = "${pkgs.fish}/bin/fish";
-      terminal.integrated.defaultProfile.linux = "${pkgs.fish}/bin/fish";
+
+      terminal = {
+        integrated.fontFamily = "JetBrainsMono Nerd Font";
+        integrated.fontSize = 14;
+        integrated.shell.linux = "${pkgs.fish}/bin/fish";
+        integrated.defaultProfile.linux = "${pkgs.fish}/bin/fish";
+        integrated.stickyScroll.enabled = true;
+        integrated.scrollback = 100000;
+      };
 
       telemetry.telemetryLevel = "off";
 
@@ -49,12 +54,7 @@
         activityBar.location = "top";
         sideBar.location = "right";
       };
-
-      terminal = {
-        integrated.scrollback = 100000;
-        integrated.stickyScroll.enabled = true;
-      };
-
+      
       gopls = {
         analyses = "{"fieldalignment": true, "unusedvariable":false}";
         ui.semanticTokens = true;
