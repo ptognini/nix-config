@@ -38,8 +38,8 @@
         '';
       };
 
-      layout = "us";
-      xkbOptions = "caps:escape";
+      xkb.layout = "us";
+      xkb.Options = "caps:escape";
 
       libinput = {
         enable = true;
