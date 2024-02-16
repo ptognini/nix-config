@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  programs.gpg.enable = false;
+  programs.gpg.enable = true;
   programs.gpg.homedir = "${config.xdg.dataHome}/gnupg";
   programs.gpg.mutableKeys = true;
   programs.gpg.mutableTrust = true;
