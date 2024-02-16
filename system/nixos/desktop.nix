@@ -34,11 +34,13 @@
           libreoffice
         ];
         extraSessionCommands = ''
+          spice-vdagent
           xrandr --output Virtual-1 --auto
         '';
       };
 
       xkb.layout = "us";
+      xkb.variant = "intl";
       xkb.options = "caps:escape";
 
       libinput = {
@@ -48,6 +50,7 @@
         touchpad.scrollMethod = "twofinger";
         touchpad.disableWhileTyping = false;
         touchpad.clickMethod = "clickfinger";
+        mouse.naturalScrolling = true;
       };
     };
     gnome.gnome-keyring.enable = true;

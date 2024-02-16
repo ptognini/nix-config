@@ -24,6 +24,7 @@
     wget
     killall
     htop
+    btop
     fzf
     ripgrep
     entr

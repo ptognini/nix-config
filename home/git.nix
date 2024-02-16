@@ -10,7 +10,7 @@ in {
       s = "status";
     };
     signing = {
-      signByDefault = if isLinux then true else false;
+      signByDefault = false; #if isLinux then true else false;
       key = "0xDDD13A55026CFA51";
     };
     extraConfig = {
@@ -24,7 +24,7 @@ in {
         condition="gitdir=${config.home.homeDirectory}/projects/personal/";
         contents={
           user = {
-              name = "ptognini";
+              name = "Pier Tognini";
               email = "ptognini@gmail.com";
           };
         };
@@ -33,7 +33,7 @@ in {
         condition="gitdir=${config.home.homeDirectory}/projects/work/";
         contents = {
           user = {
-            name = "ptognini";
+            name = "Pier Tognini";
             email = "ptognini@avaya.com";
           };
         };

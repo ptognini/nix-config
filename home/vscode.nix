@@ -9,7 +9,7 @@
 
     extensions = (with pkgs.vscode-extensions; [
       brettm12345.nixfmt-vscode
-      #vscodevim.vim
+      vscodevim.vim
       yzhang.markdown-all-in-one
       ms-vscode.makefile-tools
       golang.go
@@ -46,6 +46,10 @@
         stickyScroll.enabled = true;
         stickyScroll.defaultModel = "indentationModel";
         stickyScroll.maxLineCount = 6;
+      };
+
+      window = {
+        customTitleBarVisibility = "auto";
       };
 
       workbench = {

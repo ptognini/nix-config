@@ -12,7 +12,7 @@ in {
     package = pkgs.i3-gaps;
 
     config = rec {
-      modifier = "Mod1";
+      modifier = "Mod4";
       bars = [];
       #https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/i3-sway/lib/options.nix
       colors = {
@@ -67,53 +67,59 @@ in {
           }
         ];
         "2" = [
+          {
+            instance = "code";
+            class = "Code";
+          }
+        ];
+        "3" = [
           {class = "^firefox$";}
           {
             instance = "chromium-browser";
             class = "Chromium-browser";
           }
         ];
-        "3" = [
+        "4" = [
           {
             instance = "teams.microsoft.com";
             class = "Chromium-browser";
           }
         ];
-        "4" = [
+        "5" = [
           {
             instance = "outlook.office.com";
             class = "Chromium-browser";
           }
         ];
-        "5" = [{class = "jetbrains-goland";} {class = "jetbrains-idea";}];
-        "6" = [
-          {
-            instance = "avaya.rocket.chat";
-            class = "Chromium-browser";
-          }
-        ];
-        "8" = [
-          {
-            instance = "music.youtube.com";
-            class = "Chromium-browser";
-          }
-        ];
-        "9" = [
+        #"5" = [{class = "jetbrains-goland";} {class = "jetbrains-idea";}];
+        #"7" = [
+        #  {
+        #    instance = "avaya.rocket.chat";
+        #    class = "Chromium-browser";
+        #  }
+        #];
+        #"8" = [
+        #  {
+        #    instance = "music.youtube.com";
+        #    class = "Chromium-browser";
+        #  }
+        #];
+        "10" = [
           {
             instance = "chat.openai.com";
             class = "Chromium-browser";
           }
         ];
-        "10" = [
-          {
-            instance = "x.com";
-            class = "Chromium-browser";
-          }
-          {
-            instance = "reddit.com";
-            class = "Chromium-browser";
-          }
-        ];
+        #"10" = [
+        #  {
+        #    instance = "x.com";
+        #    class = "Chromium-browser";
+        #  }
+        #  {
+        #    instance = "reddit.com";
+        #    class = "Chromium-browser";
+        #  }
+        #];
       };
       focus.newWindow = "focus";
       startup = [
@@ -133,7 +139,7 @@ in {
           notification = false;
         }
         {
-          command = "${pkgs.feh}/bin/feh --randomize --bg-fill ${rose-pine-wallpapers}";
+          command = "${pkgs.feh}/bin/feh --randomize -Z -F --bg-fill ${rose-pine-wallpapers}";
           always = true;
           notification = false;
         }
