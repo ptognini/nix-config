@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
+    nix-ld.url = "github:Mic92/nix-ld";
+    # this line assume that you also have nixpkgs as an input
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,7 +21,7 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, darwin, nix-index-database, ... }: {
+    inputs@{ self, nix-ld, nixpkgs, home-manager, darwin, nix-index-database, ... }: {
       nixosConfigurations = let
         userDetails = {
           fullName = "Pier Tognini";
@@ -85,6 +89,10 @@
           };
 
           modules = [
+            nix-ld.nixosModules.nix-ld
+            { 
+              programs.nix-ld.enable = true; 
+            }
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
