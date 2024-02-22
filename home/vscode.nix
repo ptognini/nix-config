@@ -64,7 +64,9 @@
           fieldalignment = true; 
           unusedvariable = false;
         };
-        ui.semanticTokens = true;
+        ui = {
+          semanticTokens = true;
+        };
       };
     };
   };
