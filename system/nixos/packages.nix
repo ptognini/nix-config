@@ -42,5 +42,6 @@
     redis
     onefetch
     speedtest-cli
+    #nodejs_20
   ];
 }

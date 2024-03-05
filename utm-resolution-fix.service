@@ -1,0 +1,12 @@
+[Unit]
+Description=Watch for SPICE errors and resize display
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+Environment=DISPLAY=:0
+ExecStart=/opt/utm-resolution-fix/watch-and-fix.sh
+
+[Install]
+WantedBy=default.target

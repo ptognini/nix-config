@@ -30,6 +30,7 @@ with lib;
       golangci-lint
       richgo
       go-tools
+      graphviz
     ];
 
     programs.neovim.plugins = with pkgs.vimPlugins; [ vim-go ];
