@@ -8,17 +8,21 @@
     enableUpdateCheck = false;
 
     extensions = (with pkgs.vscode-extensions; [
+      golang.go
+      mhutchie.git-graph
+      github.copilot
+      github.copilot-chat
+      gruntfuggly.todo-tree
       brettm12345.nixfmt-vscode
-      vscodevim.vim
+      #vscodevim.vim
       yzhang.markdown-all-in-one
       ms-vscode.makefile-tools
-      golang.go
       redhat.java
       mvllow.rose-pine
       pkief.material-icon-theme
       humao.rest-client
       ms-azuretools.vscode-docker
-      mhutchie.git-graph
+      eamodio.gitlens
     ]); 
 
     userSettings = {

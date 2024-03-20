@@ -17,7 +17,7 @@
     defaultCacheTtlSsh = 60 * 60 * 8;
     enableSshSupport = true;
     enableScDaemon = false; #no smart card
-    pinentryFlavor = "curses";#"tty";
+    #pinentryPackage = "curses";#"tty";
     sshKeys = [
       "7E94299ADBECE24CBF21A28F5A6877BAE2EADC11"
     ];
