@@ -17,6 +17,7 @@
       #vscodevim.vim
       yzhang.markdown-all-in-one
       ms-vscode.makefile-tools
+      vscjava.vscode-java-pack
       redhat.java
       mvllow.rose-pine
       pkief.material-icon-theme

@@ -144,7 +144,7 @@
     fortune
     entr
     neofetch
-    nixfmt
+    nixfmt-classic
     bottom
     gdu
     p7zip

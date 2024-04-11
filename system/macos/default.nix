@@ -51,7 +51,7 @@
     curl
     speedtest-cli
     coreutils
-    nixfmt
+    nixfmt-classic
     jq
     nodePackages.bash-language-server
     nixd
