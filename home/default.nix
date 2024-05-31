@@ -35,6 +35,7 @@
       ./gpg.nix
       ./dunst.nix
       ./file-managers.nix
+      #./wireshark.nix
     ];
     xsession.enable = true;
     home.sessionVariables = {

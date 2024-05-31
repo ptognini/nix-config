@@ -20,6 +20,7 @@
     fortune
     dwt1-shell-color-scripts
     git
+    subversion
     curl
     wget
     killall
@@ -42,6 +43,9 @@
     redis
     onefetch
     speedtest-cli
+    gh
     #nodejs_20
+    wireshark
+    nmap
   ];
 }

@@ -4,11 +4,6 @@
       dpi = desktopDetails.dpi;
       enable = true;
       displayManager = {
-        defaultSession = "none+i3";
-        autoLogin = {
-          enable = true;
-          user = "${userDetails.userName}";
-        };
         lightdm.enable = true;
       };
       windowManager.i3 = {
@@ -43,14 +38,23 @@
       xkb.variant = "intl";
       xkb.options = "caps:escape";
 
-      libinput = {
+    };
+
+    libinput = {
+      enable = true;
+      touchpad.tapping = true;
+      touchpad.naturalScrolling = true;
+      touchpad.scrollMethod = "twofinger";
+      touchpad.disableWhileTyping = false;
+      touchpad.clickMethod = "clickfinger";
+      mouse.naturalScrolling = true;
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin = {
         enable = true;
-        touchpad.tapping = true;
-        touchpad.naturalScrolling = true;
-        touchpad.scrollMethod = "twofinger";
-        touchpad.disableWhileTyping = false;
-        touchpad.clickMethod = "clickfinger";
-        mouse.naturalScrolling = true;
+        user = "${userDetails.userName}";
       };
     };
     gnome.gnome-keyring.enable = true;

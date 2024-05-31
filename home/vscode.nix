@@ -12,6 +12,7 @@
       mhutchie.git-graph
       github.copilot
       github.copilot-chat
+      github.vscode-pull-request-github
       gruntfuggly.todo-tree
       brettm12345.nixfmt-vscode
       #vscodevim.vim
@@ -24,6 +25,13 @@
       humao.rest-client
       ms-azuretools.vscode-docker
       eamodio.gitlens
+      ms-vscode.cpptools-extension-pack
+      humao.rest-client
+      davidanson.vscode-markdownlint
+      #kruemelkatze.vscode-dashboard
+      
+      #iteratec.bdd-power-tools
+      #tamassoos.bdd-highlighter
     ]); 
 
     userSettings = {

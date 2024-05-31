@@ -30,7 +30,16 @@ in {
         };
       }
       {
-        condition="gitdir=${config.home.homeDirectory}/projects/work/";
+        condition="gitdir=${config.home.homeDirectory}/projects/work/bitbucket";
+        contents = {
+          user = {
+            name = "Pier Tognini";
+            email = "ptognini@avaya.com";
+          };
+        };
+      }
+      {
+        condition="gitdir=${config.home.homeDirectory}/projects/work/github";
         contents = {
           user = {
             name = "Pier Tognini";
