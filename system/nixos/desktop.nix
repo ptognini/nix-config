@@ -70,7 +70,7 @@
         xfce.thunar-archive-plugin
         xfce.thunar-volman
         xfce.thunar-media-tags-plugin
-        gnome.file-roller
+        file-roller
       ];
     };
     dconf.enable = true;

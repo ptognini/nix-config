@@ -81,16 +81,28 @@ in {
         ];
         "4" = [
           {
-            instance = "teams.microsoft.com";
-            class = "Chromium-browser";
+            instance = "Navigator";
+            class = "firefox";
           }
         ];
         "5" = [
           {
-            instance = "outlook.office.com";
-            class = "Chromium-browser";
+            instance = "wireshark";
+            class = "Wireshark";
           }
         ];
+        #"4" = [
+        #  {
+        #    instance = "teams.microsoft.com";
+        #    class = "Chromium-browser";
+        #  }
+        #];
+        #"5" = [
+        #  {
+        #    instance = "outlook.office.com";
+        #    class = "Chromium-browser";
+        #  }
+        #];
         #"5" = [{class = "jetbrains-goland";} {class = "jetbrains-idea";}];
         #"7" = [
         #  {

@@ -95,10 +95,10 @@
         };
 
         modules = [
-          nix-ld.nixosModules.nix-ld
-          {
-            programs.nix-ld.enable = true;
-          }
+          #nix-ld.nixosModules.nix-ld
+          #{
+          #  programs.nix-ld.enable = true;
+          #}
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
