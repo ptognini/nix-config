@@ -9,6 +9,8 @@ with pkgs; let
       setuptools
       wheel
       twine
+      confluent-kafka
+      fastavro
     ]);
 in {
   home.packages = with pkgs; [
@@ -39,7 +41,7 @@ in {
     shellcheck
     lazygit
     stylua
-    nodePackages.eslint
+    #nodePackages.eslint
     codespell
     # kafka
     avro-tools
@@ -48,7 +50,9 @@ in {
     jdt-language-server
     markdownlint-cli
     shfmt
-
+    protobuf
+    postman
+    
     # cloud
     kubectl
     stern

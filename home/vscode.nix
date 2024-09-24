@@ -28,8 +28,11 @@
       ms-vscode.cpptools-extension-pack
       humao.rest-client
       davidanson.vscode-markdownlint
+      zxh404.vscode-proto3
+      #pbkit.vscode-pbkit
+      #peterj.proto
+
       #kruemelkatze.vscode-dashboard
-      
       #iteratec.bdd-power-tools
       #tamassoos.bdd-highlighter
     ]); 

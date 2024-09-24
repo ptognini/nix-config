@@ -22,6 +22,7 @@ with lib;
       delve # github.com/go-delve/delve/cmd/dlv
       gore # golang repl: github.com/motemen/gore
       gopls
+      protoc-gen-go
       iferr
       gotestsum
       gomodifytags
@@ -31,6 +32,7 @@ with lib;
       richgo
       go-tools
       graphviz
+      #godepgraph
     ];
 
     programs.neovim.plugins = with pkgs.vimPlugins; [ vim-go ];

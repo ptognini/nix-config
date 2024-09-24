@@ -73,7 +73,7 @@ in {
           }
         ];
         "3" = [
-          {class = "^firefox$";}
+          #{class = "^firefox$";}
           {
             instance = "chromium-browser";
             class = "Chromium-browser";
@@ -86,6 +86,12 @@ in {
           }
         ];
         "5" = [
+          {
+            instance = "postman";
+            class = "Postman";
+          }
+        ];
+        "6" = [
           {
             instance = "wireshark";
             class = "Wireshark";
