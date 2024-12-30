@@ -29,6 +29,8 @@
       humao.rest-client
       davidanson.vscode-markdownlint
       zxh404.vscode-proto3
+      donjayamanne.githistory
+      
       #pbkit.vscode-pbkit
       #peterj.proto
 

@@ -7,12 +7,12 @@
   ...
 }: {
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;#Flakes;
     optimise.automatic = true;
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates = "monthly";
+      options = "--delete-older-than 365d";
     };
 
     extraOptions = ''
@@ -23,7 +23,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "nix-2.16.2"
+    #"electron-25.9.0"
+    #"nix-2.16.2"
   ];
 }
