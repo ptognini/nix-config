@@ -14,7 +14,7 @@
     ./openssh.nix
   ];
   nixpkgs.overlays = [
-    inputs.nurpkgs.overlay
+    inputs.nurpkgs.overlays.default
   ];
   # NETWORK
   networking.networkmanager.enable =
@@ -65,9 +65,9 @@
   ];
 
   # LOCATION SERVICES
-  services.geoclue2.enable = true;
-  location.provider = "geoclue2";
-  services.localtimed.enable = true;
+  #services.geoclue2.enable = true;
+  #location.provider = "geoclue2";
+  #services.localtimed.enable = true;
 
   # KEYBOARD SANITY
   services.keyd = {

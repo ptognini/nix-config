@@ -7,12 +7,12 @@
   ...
 }: {
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest; #nixFlakes;
     optimise.automatic = true;
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates = "monthly";
+      options = "--delete-older-than 180d";
     };
 
     extraOptions = ''

@@ -1,11 +1,16 @@
 {config, pkgs, ...}:
 {
   fonts.packages = with pkgs; [
-	  (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ]; })
-#nerdfonts
+	  #(nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ]; })
+      
+      #nerdfonts
+
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
 	    dejavu_fonts
 	    noto-fonts
-	    noto-fonts-cjk
+	    noto-fonts-cjk-sans
 	    noto-fonts-emoji
       terminus_font
       roboto

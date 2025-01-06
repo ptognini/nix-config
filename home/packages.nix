@@ -10,7 +10,7 @@ with pkgs; let
       wheel
       twine
       confluent-kafka
-      fastavro
+      #fastavro
     ]);
 in {
   home.packages = with pkgs; [
@@ -44,7 +44,7 @@ in {
     #nodePackages.eslint
     codespell
     # kafka
-    avro-tools
+    #avro-tools
     kcat
     delve
     jdt-language-server
