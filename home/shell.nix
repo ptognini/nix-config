@@ -153,6 +153,6 @@
     dwt1-shell-color-scripts
     htop
     # lua-language-server
-    poppler_utils
+    poppler-utils
   ];
 }

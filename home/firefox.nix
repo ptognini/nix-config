@@ -42,7 +42,7 @@ in {
     policies = {DefaultDownloadDirectory = "\${home}/downloads";};
 
     profiles."ptognini" = {
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         clearurls
         decentraleyes
         libredirect
