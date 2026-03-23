@@ -3,49 +3,47 @@
   pkgs,
   lib,
   ...
-}: 
+}:
 let
   chatGptIcon = pkgs.fetchurl {
-    url =
-      "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png";
-    sha256 = "024yhp9kqky0v9yviz9z60gwfqksvbx7vf8gads03idvvcja89hn";
+    url = "https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png";
+    sha256 = "sha256-FiakJNu7xQF0Uw+5ffraemLHHzA//bh92sBPPNOFngg=";
   };
 
   msTeamsIcon = pkgs.fetchurl {
     url = "https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_teams_logo_icon_145726.png";
-    sha256 =  "0b9nmxm03r90a3fdfyzrwk4f7plv74699w5ir369nd24m0zx5ry3";
- };
+    sha256 = "sha256-zEx415L+EVGzohnaEC8T/vJrPMVCq2yJdd4IE4Yb6yA=";
+  };
 
- msOutlookIcon = pkgs.fetchurl {
-  url = "https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_outlook_logo_icon_145721.png";
-  sha256="0lwd3x2c3jgzi7pkynrahijbi5a2l60l49k98g9jvcvp8a5pk27a";
- };
+  msOutlookIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_outlook_logo_icon_145721.png";
+    sha256 = "sha256-Fkpi75V9Aim1viI8Cf/a1VdZ0jaQKrUurxMburFqsSk=";
+  };
 
- rocketChatIcon = pkgs.fetchurl {
-  url = "https://cdn.icon-icons.com/icons2/2621/PNG/512/brand_rocket_chat_icon_157334.png";
-  sha256 = "1rc3b8fgp6a4dpmndhp2b8fczhp7mmmxh624y58hr43xxzr7y1yb";
- };
+  rocketChatIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/2621/PNG/512/brand_rocket_chat_icon_157334.png";
+    sha256 = "sha256-ywd/8u99kAxR8UQY2Gut58LPHFriwmbrbUSZ+xxag+U=";
+  };
 
- redditIcon = pkgs.fetchurl {
-  url = "https://cdn.icon-icons.com/icons2/1195/PNG/512/1490889653-reddit_82537.png";
-  sha256 = "01ja74q5i797s0cfhr8byqq1bzzix23hswimij663ylm864w7lna";
- };
+  redditIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/1195/PNG/512/1490889653-reddit_82537.png";
+    sha256 = "sha256-W5SNuLLvLfE3qHCj1zOwX0audC6RR/rq+XWOYT1WieM=";
+  };
 
- twitterIcon = pkgs.fetchurl {
-  url = "https://cdn.icon-icons.com/icons2/836/PNG/512/Twitter_icon-icons.com_66803.png";
-  sha256 = "1mlqxxj2rwwv439lvdv4k4djhmwk92lv1riywk94r9hcmk5bbs92";
- };
+  twitterIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/836/PNG/512/Twitter_icon-icons.com_66803.png";
+    sha256 = "sha256-43X/6zjbombCqR9oxmPrwNzvI92G0yF5lyGcQfGh7Og=";
+  };
 
- vimCheatSheetIcon = pkgs.fetchurl {
-  url = "https://cdn.icon-icons.com/icons2/1381/PNG/512/vim_94609.png";
-  sha256 = "0fnrcrsrrnchrgjbg0hszynj2g2m674b3nc4ky8pdb3zgc1490sc";
- };
+  vimCheatSheetIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/1381/PNG/512/vim_94609.png";
+    sha256 = "sha256-37SocmqoQ+VPVD8NF/scJnX7iqFZca8mPmThTA7Yvlw=";
+  };
 
- youtubeMusicIcon = pkgs.fetchurl {
-  url ="https://cdn.icon-icons.com/icons2/3132/PNG/512/youtube_music_social_network_song_multimedia_icon_192250.png";
-  sha256 = "0hxwh8x4xmpa9rpmscds9sip08a6xz9s58xncd2mlnyzh8pa447b";
- };
-
+  youtubeMusicIcon = pkgs.fetchurl {
+    url = "https://cdn.icon-icons.com/icons2/3132/PNG/512/youtube_music_social_network_song_multimedia_icon_192250.png";
+    sha256 = "sha256-f5+2rCjJKHOmWkMEov+grK3aRMx4Du5xhWr5kvZhM3Y=";
+  };
 in
 {
   home.packages = with pkgs; [

@@ -14,6 +14,15 @@
 
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    rose-pine-wallpapers = {
+      url = "github:rose-pine/wallpapers";
+      flake = false;
+    };
+    firefox-ui-fix = {
+      url = "github:black7375/Firefox-UI-Fix/8c6140ce20b85d6a7292980b0408b75731f2ec5e";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

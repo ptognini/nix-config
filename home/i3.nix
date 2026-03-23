@@ -1,12 +1,11 @@
 {
   pkgs,
+  inputs,
   desktopDetails,
   config,
   lib,
   ...
-}: let
-  rose-pine-wallpapers = pkgs.callPackage ./wallpapers.nix {};
-in {
+}: {
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3;
@@ -157,7 +156,7 @@ in {
           notification = false;
         }
         {
-          command = "${pkgs.feh}/bin/feh --randomize -Z -F --bg-fill ${rose-pine-wallpapers}";
+          command = "${pkgs.feh}/bin/feh --randomize -Z -F --bg-fill ${inputs.rose-pine-wallpapers}";
           always = true;
           notification = false;
         }

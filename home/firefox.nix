@@ -8,7 +8,7 @@
   inherit (pkgs.lib.strings) concatStrings;
   inherit (pkgs.lib.attrsets) mapAttrsToList;
 
-  firefox-ui-fix = pkgs.callPackage ./firefox-ui-fix.nix {};
+  firefox-ui-fix = inputs.firefox-ui-fix;
 
   settings = writeText "user.js" (concatStrings (mapAttrsToList (name: value: ''
       user_pref("${name}", ${builtins.toJSON value});
@@ -19,9 +19,6 @@
     cat '${firefox-ui-fix}/user.js' '${settings}' > $out
   '';
 in {
-  # heavily inspired by
-  # https://github.com/TLATER/dotfiles/blob/7ce77190696375aab3543f7365d298729a548df5/home-modules/firefox-webapp.nix
-
   xdg.configFile."tridactyl/tridactylrc".text = ''
   '';
 
