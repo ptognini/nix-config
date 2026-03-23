@@ -137,13 +137,14 @@
 
   home.sessionPath = [
     "$HOME/.local/share/go/bin"
+    "$HOME/.local/bin"
   ];
 
   home.packages = with pkgs; [
     lolcat
     fortune
     entr
-    neofetch
+    fastfetch
     nixfmt-classic
     bottom
     gdu

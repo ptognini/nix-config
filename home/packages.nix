@@ -16,8 +16,7 @@ in {
   home.packages = with pkgs; [
     # TERMINAL
     any-nix-shell
-    neofetch
-    escrotum # screen recording
+    fastfetch
     gnupg
     feh
     cdrkit # to create iso files
@@ -51,8 +50,6 @@ in {
     markdownlint-cli
     shfmt
     protobuf
-    postman
-    
     # cloud
     kubectl
     stern

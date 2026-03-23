@@ -1,7 +1,6 @@
 { config, pkgs, userDetails, desktopDetails, ... }: {
   services = {
     xserver = {
-      dpi = desktopDetails.dpi;
       enable = true;
       displayManager = {
         lightdm.enable = true;
@@ -22,7 +21,6 @@
           pavucontrol
           obsidian
           zathura
-          #flameshot
           evince
           foliate
           inkscape-with-extensions
@@ -62,7 +60,6 @@
     gvfs.enable = true;
     tumbler.enable = true;
   };
-  security.pam.services.lightdm.enableGnomeKeyring = true;
   programs = {
     thunar = {
       enable = true;
@@ -75,12 +72,4 @@
     };
     dconf.enable = true;
   };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-kde
-  #   ];
-  # };
-
 }

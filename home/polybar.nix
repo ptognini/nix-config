@@ -255,7 +255,7 @@ in {
 
       "module/network" = {
         type = "internal/network";
-        interface = "enp0s5";
+        interface-type = "wired";
         interval = "3.0";
         label-connected = "%{T4}󰛴 %{T-}%downspeed% %{T4}󰛶 %{T-}%upspeed%";
         label-connected-font = 2;

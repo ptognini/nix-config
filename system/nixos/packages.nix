@@ -26,7 +26,6 @@
     killall
     htop
     btop
-    fzf
     ripgrep
     entr
     lolcat
@@ -34,7 +33,7 @@
     nixd
     fd
     lua-language-server
-    nodePackages_latest.bash-language-server
+    bash-language-server
     p11-kit #used to generate java ca-certs
     glxinfo
     minikube

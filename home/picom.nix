@@ -8,7 +8,6 @@
       #corner-radius-exclude = [ "window_class = 'Polybar'" ];
       blur-method = "dual_kawase";
       blur-strength = 5;
-      blur = true;
       #      blur-background-fixed = false;
       #     blue-background-exclude = [
       #       "window_type = 'dock'"

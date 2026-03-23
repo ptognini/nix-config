@@ -30,9 +30,9 @@ parted "/dev/${device}" --script -- 'print' | awk '/^ [0-9]+/{print $1}' | while
     parted "/dev/${device}" --script -- rm "$part"
 done
 
-echo "Creating partitions" 
+echo "Creating partitions"
 parted "/dev/${device}" --script -- mklabel gpt
-parted "/dev/${device}" --script -- mkpart primary 512MB -8GB 
+parted "/dev/${device}" --script -- mkpart primary 512MB -8GB
 parted "/dev/${device}" --script -- mkpart primary linux-swap -8GB 100%
 parted "/dev/${device}" --script -- mkpart ESP fat32 1MB 512MB
 parted "/dev/${device}" --script -- set 3 esp on
@@ -46,11 +46,10 @@ mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 swapon "/dev/${device}2"
 
-#echo "Generating config."
-#nixos-generate-config --root /mnt
+# enable flakes for the install
+export NIX_CONFIG="experimental-features = nix-command flakes"
 
 nix-env -iA nixos.git
-nix-env -iA nixos.nixFlakes
 
 git clone https://github.com/ptognini/nix-config
 cd nix-config
@@ -72,13 +71,4 @@ oldFullName="Pier Tognini"
 sed -i "s/$oldUserName/$userName/g" flake.nix
 sed -i "s/$oldFullName/$fullName/g" flake.nix
 
-while true; do
-    read -p "Enter utm for UTM or prl for Parallels (utm/prl): " virtSystem < /dev/tty
-    case $virtSystem in
-        [prl]* ) break;;
-        [utm]* ) break;;
-        * ) echo "Invalid option $virtSystem. Try again or Ctrl+C to exit.";;
-    esac
-done
-nixos-install --flake .#$virtSystem-dev < /dev/tty
-
+nixos-install --flake .#utm-dev < /dev/tty

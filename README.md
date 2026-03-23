@@ -44,7 +44,7 @@ possible. I recognize this can be annoying as every change require a system rebu
 ### Linux VM ### 
 
 1. [Download NixOS minimal ISO](https://nixos.org/download#nixos-iso) 
-2. Using UTM or Parallels, create a VM using the downloaded iso
+2. Using UTM, create a VM using the downloaded iso
 3. Dpi is set to 192, so don't forget to set retina mode
 3. > sudo -i
 4. > curl -sS https://raw.githubusercontent.com/ptognini/nix-config/main/install/nixos.sh|sh

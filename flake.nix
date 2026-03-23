@@ -2,11 +2,7 @@
   description = "Nixos setup for development";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nix-ld.url = "github:Mic92/nix-ld";
-    # this line assume that you also have nixpkgs as an input
-    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -22,7 +18,6 @@
 
   outputs = inputs @ {
     self,
-    nix-ld,
     nixpkgs,
     home-manager,
     darwin,
@@ -36,9 +31,8 @@
       };
       desktopDetails = {dpi = 192;};
     in {
-      #TODO: AVOID THE REPETITION
-      prl-dev = nixpkgs.lib.nixosSystem rec {
-        system = "aarch_64-linux";
+      utm-dev = nixpkgs.lib.nixosSystem rec {
+        system = "aarch64-linux";
         specialArgs = {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs;
@@ -56,54 +50,6 @@
               extraSpecialArgs = {
                 inherit inputs;
               };
-              users.${userDetails.userName} = {
-                home = {
-                  username = "${userDetails.userName}";
-                  homeDirectory = "/home/${userDetails.userName}";
-                  # do not change this value
-                  stateVersion = "23.11"; #23.11
-                };
-
-                # Let Home Manager install and manage itself.
-                programs.home-manager.enable = true;
-              };
-              # make root great again
-              users.root = {pkgs, ...}: {
-                home.username = "root";
-                home.homeDirectory = "/root";
-                home.stateVersion = "23.11"; # 23.11
-                programs.home-manager.enable = true;
-                imports = [./home/nvim.nix ./home/shell.nix];
-              };
-            };
-          }
-          ./machines/prl-dev
-          ./system/nixos
-          ./home
-          nix-index-database.nixosModules.nix-index # https://github.com/nix-community/nix-index-database
-        ];
-      };
-
-      utm-dev = nixpkgs.lib.nixosSystem rec {
-        system = "aarch_64-linux";
-        specialArgs = {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs;
-          inherit system;
-          inherit userDetails;
-          inherit desktopDetails;
-        };
-
-        modules = [
-          #nix-ld.nixosModules.nix-ld
-          #{
-          #  programs.nix-ld.enable = true;
-          #}
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
               users.${userDetails.userName} = {
                 home = {
                   username = "${userDetails.userName}";

@@ -14,24 +14,21 @@
 
   # Hostname
   networking.hostName = "utm-dev";
-  
+
   hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = [ pkgs.mesa.drivers pkgs.virglrenderer ];
-  #hardware.opengl.driSupport = true;
+  hardware.graphics.extraPackages = [ pkgs.virglrenderer ];
 
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.qemu.package = pkgs.qemu_kvm;
   services.qemuGuest.enable = true;
-  
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
-  #sound.enable = true;
+
   services.pulseaudio.enable = false;
   services.pipewire = {
   	enable = true;
 	  alsa.enable = true;
-	  alsa.support32Bit = true;
 	  pulse.enable = true;
 	  wireplumber.enable = true;
   };

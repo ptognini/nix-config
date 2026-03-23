@@ -29,7 +29,7 @@
   security.rtkit.enable = true;
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.gdm.enableGnomeKeyring = true;
+  # gnome-keyring PAM integration handled by services.gnome.gnome-keyring.enable
   security.sudo.wheelNeedsPassword = false;
   programs._1password.enable = true;
   programs._1password-gui = {
@@ -88,8 +88,6 @@
     #_JAVA_OPTIONS = "-Dsun.java2d.uiScale=1";
     #QT_SCALE_FACTOR = "1";
   };
-
-  environment.localBinInPath = true;
 
   services.envfs.enable = true;
 
