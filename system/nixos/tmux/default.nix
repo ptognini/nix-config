@@ -1,11 +1,7 @@
 {
   lib,
-  inputs,
-  system,
   config,
   pkgs,
-  username,
-  fullname,
   ...
 }: {
   programs.tmux = {

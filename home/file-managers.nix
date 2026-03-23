@@ -12,12 +12,12 @@ let
   lfIcons = pkgs.fetchurl {
     url =
       "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
-    sha256 = "0hxbniw1avl02sdbjx4jdr80kbrlnbm86crfm44rfrs9bkjapda1";
+    sha256 = "sha256-c0orDQO4hedh+xaNrovC0geh5iq2K+e+PZIL5abxnIk=";
   };
   lfColors = pkgs.fetchurl {
     url =
       "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
-    sha256 = "1ri9d5hdmb118sqzx0sd22fbcqjhgrp3r9xcsm88pfk3wig6b0ki";
+    sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
   };
 in 
 {

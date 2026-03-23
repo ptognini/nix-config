@@ -23,7 +23,7 @@
     subversion
     curl
     wget
-    killall
+    psmisc # provides killall, fuser, pstree
     htop
     btop
     ripgrep
@@ -35,7 +35,7 @@
     lua-language-server
     bash-language-server
     p11-kit #used to generate java ca-certs
-    glxinfo
+    mesa-demos
     minikube
     openssl
     nix-prefetch-github

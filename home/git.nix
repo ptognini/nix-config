@@ -4,19 +4,19 @@ in {
   programs.git = {
     package = pkgs.gitFull;
     enable = true;
-    aliases = {
-      ci = "commit";
-      co = "checkout";
-      s = "status";
-    };
-    signing = {
-      signByDefault = false; #if isLinux then true else false;
-      key = "0xDDD13A55026CFA51";
-    };
-    extraConfig = {
+    settings = {
+      alias = {
+        ci = "commit";
+        co = "checkout";
+        s = "status";
+      };
       credential.helper = "${
           pkgs.git.override { withLibsecret = true; }
         }/bin/git-credential-libsecret";
+    };
+    signing = {
+      signByDefault = false;
+      key = "0xDDD13A55026CFA51";
     };
 
     includes = [
@@ -52,4 +52,3 @@ in {
     #TODO review https://pickard.cc/posts/git-identity-home-manager/
   };
 }
-

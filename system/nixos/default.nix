@@ -14,6 +14,8 @@
     ./openssh.nix
   ];
   nixpkgs.overlays = [
+    # re-add recurseIntoAttrs to pkgs for NUR compatibility with nixpkgs 25.11
+    (final: prev: { recurseIntoAttrs = prev.lib.recurseIntoAttrs; })
     inputs.nurpkgs.overlays.default
   ];
   # NETWORK

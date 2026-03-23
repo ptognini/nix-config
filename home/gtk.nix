@@ -1,4 +1,4 @@
-{ gtk-nix, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
