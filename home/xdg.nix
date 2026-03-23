@@ -22,7 +22,7 @@ let
 
   rocketChatIcon = pkgs.fetchurl {
     url = "https://cdn.icon-icons.com/icons2/2621/PNG/512/brand_rocket_chat_icon_157334.png";
-    sha256 = "sha256-ywd/8u99kAxR8UQY2Gut58LPHFriwmbrbUSZ+xxag+U=";
+    sha256 = "sha256-+Q1k3fdXrFtVyVvslUu8TUksFJd3U5KMNevVBthSnTQ=";
   };
 
   redditIcon = pkgs.fetchurl {
