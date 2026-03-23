@@ -2,10 +2,12 @@
 
 pkgs.stdenv.mkDerivation {
   name = "rose-pine-wallpapers";
-  src = pkgs.fetchgit {
-    url = "https://github.com/rose-pine/wallpapers";
-    #rev = "main";  # Specify the commit, tag, or branch you want to download.
-    sha256 = "7jaFqVXs6T3S818IBD3CLjNgDYuc5/ibMWCCnlbtUHw=";
+  src = pkgs.fetchFromGitHub {
+    owner = "rose-pine";
+    repo = "wallpapers";
+    rev = "9b1a09f2b99e0378620215a6169109b3d505a5a3";
+    # build once to get correct hash from error, then paste it here
+    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
 
   installPhase = ''
