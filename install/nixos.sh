@@ -51,7 +51,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 nix-env -iA nixos.git
 
-git clone https://github.com/ptognini/nix-config
+git clone -b config_updates https://github.com/ptognini/nix-config
 cd nix-config
 echo "Please enter login (eg.: ptognini): "
 read userName < /dev/tty
