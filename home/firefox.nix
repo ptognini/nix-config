@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (pkgs) runCommandNoCC writeText;
+  inherit (pkgs) runCommand writeText;
   inherit (pkgs.lib.strings) concatStrings;
   inherit (pkgs.lib.attrsets) mapAttrsToList;
 
@@ -15,7 +15,7 @@
     '')
     config.programs.firefox.profiles.ptognini.settings));
 
-  settings-file = runCommandNoCC "firefox-settings" {} ''
+  settings-file = runCommand "firefox-settings" {} ''
     cat '${firefox-ui-fix}/user.js' '${settings}' > $out
   '';
 in {
